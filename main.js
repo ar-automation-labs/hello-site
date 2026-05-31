@@ -1,5 +1,5 @@
   /* ============================================
-   AR Automation Lab — Interactive JS
+   ALI AUTOMATES — Interactive JS
    ============================================ */
 (function(){
   'use strict';
@@ -151,12 +151,25 @@
       ty.innerHTML='<div class="cmsg__b"><span class="dots"><span></span><span></span><span></span></span></div>';
       msgs.appendChild(ty);msgs.scrollTop=msgs.scrollHeight;
 
-      setTimeout(function(){
+      /* Proxy via Netlify Function — calls n8n AI chatbot securely */
+      fetch('/.netlify/functions/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:text,sessionId:'user-'+Date.now()})
+      })
+      .then(function(r){return r.json()})
+      .then(function(data){
         ty.remove();
         var bm=document.createElement('div');bm.className='cmsg cmsg--bot';
-        bm.innerHTML='<div class="cmsg__b">'+escHtml(getReply(text))+'</div>';
+        bm.innerHTML='<div class="cmsg__b">'+escHtml(data.reply||'Got it!')+'</div>';
         msgs.appendChild(bm);msgs.scrollTop=msgs.scrollHeight;
-      },1200);
+      })
+      .catch(function(){
+        ty.remove();
+        var bm=document.createElement('div');bm.className='cmsg cmsg--bot';
+        bm.innerHTML='<div class="cmsg__b">Something went wrong. Email Ali directly!</div>';
+        msgs.appendChild(bm);msgs.scrollTop=msgs.scrollHeight;
+      });
     }
 
     function getReply(m){
@@ -174,7 +187,7 @@
       if(lo.includes('long')||lo.includes('setup')||lo.includes('time')||lo.includes('take'))
         return "Most automations are built in 3-7 days. Simple ones like lead capture (3-5 days), complex AI chatbots (5-7 days). Timeline agreed before starting.";
       if(lo.includes('hello')||lo.includes('hi')||lo.includes('hey'))
-        return "Hey there! 👋 Welcome to AR Automation Lab. How can I help you today? Ask about automations, pricing, or how to get started!";
+        return "Hey there! 👋 Welcome to Ali Automates. How can I help you today? Ask about automations, pricing, or how to get started!";
       if(lo.includes('thank'))
         return "You're welcome! 😊 Reach out to Ali directly through the contact form if you need anything else.";
       return "Great question! Ali can help with that. Fill out the contact form or reach out directly — he responds within 24 hours!";
@@ -208,12 +221,12 @@
 
       var data={name:name,email:email,who:who,service:service,message:form.querySelector('#cf-msg')?form.querySelector('#cf-msg').value.trim():'',timestamp:new Date().toISOString(),source:'Website Contact Form'};
 
-      /* REPLACE below with your actual n8n webhook URL */
-      /* For security: use n8n Basic Auth or a Netlify Function proxy */
-      var WH='YOUR_N8N_CONTACT_FORM_WEBHOOK_URL';
-      var promise;
-      if(WH==='YOUR_N8N_CONTACT_FORM_WEBHOOK_URL'||!WH){promise=new Promise(function(r){setTimeout(r,1500)})}
-      else{promise=fetch(WH,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})}
+      /* Proxy via Netlify Function — real webhook URL never exposed to browser */
+      var promise=fetch('/.netlify/functions/contact',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(data)
+      }).then(function(r){if(!r.ok)throw new Error('Server error');return r.json()})
 
       promise.then(function(){
         btn.classList.remove('loading');btn.classList.add('ok');

@@ -1,0 +1,18 @@
+# ============================================
+# NETLIFY CONFIG
+# ============================================
+
+[build]
+  functions = "netlify/functions"   # Where your proxy functions live
+  publish   = "."                   # Your site root (index.html is here)
+
+[functions]
+  node_bundler = "esbuild"          # Faster, smaller function bundles
+
+# CORS headers — allows your frontend to call /.netlify/functions/*
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin  = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
