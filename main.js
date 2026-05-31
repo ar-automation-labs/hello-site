@@ -1,5 +1,5 @@
   /* ============================================
-   ALI AUTOMATES — Interactive JS
+   AR Automation Lab — Interactive JS
    ============================================ */
 (function(){
   'use strict';
@@ -174,7 +174,7 @@
       if(lo.includes('long')||lo.includes('setup')||lo.includes('time')||lo.includes('take'))
         return "Most automations are built in 3-7 days. Simple ones like lead capture (3-5 days), complex AI chatbots (5-7 days). Timeline agreed before starting.";
       if(lo.includes('hello')||lo.includes('hi')||lo.includes('hey'))
-        return "Hey there! 👋 Welcome to Ali Automates. How can I help you today? Ask about automations, pricing, or how to get started!";
+        return "Hey there! 👋 Welcome to AR Automation Lab. How can I help you today? Ask about automations, pricing, or how to get started!";
       if(lo.includes('thank'))
         return "You're welcome! 😊 Reach out to Ali directly through the contact form if you need anything else.";
       return "Great question! Ali can help with that. Fill out the contact form or reach out directly — he responds within 24 hours!";
