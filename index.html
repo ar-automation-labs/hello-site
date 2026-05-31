@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Automates — AI Automation Specialist | n8n, Chatbots & Lead Capture</title>
+    <meta name="description" content="Ali Automates builds custom AI automations for real estate agents, coaches, consultants & marketing agencies. Lead capture, AI chatbots, inbox management & LinkedIn content — all automated with n8n. Book a free consultation.">
+    <meta name="keywords" content="Ali Automates, Ali Raza, AI automation specialist, n8n automation, lead capture automation, AI chatbot setup, inbox management automation, LinkedIn content automation, business process automation, real estate automation, coaching automation, marketing agency automation, workflow automation expert, AR Automation Labs">
+    <meta name="author" content="Ali Raza">
+    <meta name="robots" content="index, follow, max-snippet:-1">
+    <link rel="canonical" href="https://aliautomates.netlify.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aliautomates.netlify.app/">
+    <meta property="og:title" content="Ali Automates — AI Automations That Work While You Don't">
+    <meta property="og:description" content="Custom AI automations for businesses. Lead capture, chatbots, inbox management & LinkedIn content — automated with n8n.">
+    <meta property="og:site_name" content="Ali Automates">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ali Automates — AI Automations That Work While You Don't">
+    <meta name="twitter:description" content="Custom AI automations for businesses. Lead capture, chatbots, inbox management & LinkedIn content — automated with n8n.">
+
+    <meta name="theme-color" content="#07070A">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="uploads/profile_pic.png">
+
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Ali Automates",
+            "url": "https://aliautomates.netlify.app/",
+            "description": "Custom AI automations for businesses — lead capture, AI chatbots, inbox management, LinkedIn content creation powered by n8n.",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://aliautomates.netlify.app/#contact",
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "AR Automation Labs",
+            "url": "https://aliautomates.netlify.app/",
+            "description": "AI Automation Specialist building custom workflows with n8n, OpenAI, Pinecone, and more.",
+            "serviceType": ["AI Automation", "Workflow Automation", "n8n Development", "AI Chatbot Development"],
+            "areaServed": "Worldwide",
+            "founder": { "@type": "Person", "name": "Ali Raza" }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Ali Raza",
+            "jobTitle": "AI Automation Specialist",
+            "url": "https://aliautomates.netlify.app/",
+            "sameAs": ["https://www.linkedin.com/in/ar-automation-labs/"]
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "Do I need technical knowledge to use the automations?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. I build everything to be plug-and-play. If you can check email or use a spreadsheet, you can use these automations. I handle all the technical setup." } },
+                { "@type": "Question", "name": "Will this work with the tools I already use?", "acceptedAnswer": { "@type": "Answer", "text": "Most likely. n8n connects with 400+ apps including Gmail, Slack, Trello, HubSpot, Google Sheets, WhatsApp, and more. We'll check your stack before starting." } },
+                { "@type": "Question", "name": "How long does it take to build an automation?", "acceptedAnswer": { "@type": "Answer", "text": "Simple automations like lead capture or inbox management take 3-5 days. Complex AI chatbots or multi-step workflows may take 5-7 days." } },
+                { "@type": "Question", "name": "What happens if something breaks?", "acceptedAnswer": { "@type": "Answer", "text": "I provide post-launch support to fix any issues. Automations are built with error handling, but if something unexpected happens, I'll resolve it quickly." } },
+                { "@type": "Question", "name": "Is my business data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. I use secure, encrypted connections and never store your data. Your automations run on your own accounts or secure cloud environments you control." } },
+                { "@type": "Question", "name": "Can I customize or change things later?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. n8n workflows are visual and easy to modify. I can teach you how to make small changes, or handle updates for you." } },
+                { "@type": "Question", "name": "Do I own the automation, or is it rented?", "acceptedAnswer": { "@type": "Answer", "text": "You own it 100%. Once built and deployed, it's yours. No monthly subscription to me. You only pay for the tools you use (like n8n cloud or API credits)." } }
+            ]
+        }
+    ]
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <div class="header__inner">
+            <a href="#hero" class="header__logo" aria-label="AR Automation Labs - Home">
+                <svg class="header__logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <path d="M8 32L20 8L32 32" stroke="#00BFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 24H26" stroke="#00BFFF" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="2" y="2" width="36" height="36" rx="8" stroke="url(#lg1)" stroke-width="1.5"/>
+                    <defs><linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/></linearGradient></defs>
+                </svg>
+                <span class="header__logo-text">AR <span class="header__logo-text--thin">AUTOMATION LABS</span></span>
+            </a>
+            <nav class="header__nav" role="navigation" aria-label="Main">
+                <a href="#hero" class="header__nav-link">Home</a>
+                <a href="#about" class="header__nav-link">About</a>
+                <a href="#automations" class="header__nav-link">Projects</a>
+                <a href="#faq" class="header__nav-link">FAQ</a>
+                <a href="#contact" class="header__cta">Book a Call</a>
+            </nav>
+            <button class="header__menu-btn" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+        <div class="mobile-menu__inner">
+            <a href="#hero" class="mobile-menu__link">Home</a>
+            <a href="#about" class="mobile-menu__link">About</a>
+            <a href="#automations" class="mobile-menu__link">Projects</a>
+            <a href="#faq" class="mobile-menu__link">FAQ</a>
+            <a href="#contact" class="mobile-menu__cta">Book a Call</a>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero" class="section hero" data-animate>
+            <div class="hero__particles" aria-hidden="true">
+                <div class="particle" style="top:10%;left:10%;--d:3s;--s:2px;--dx:22px;--dy:-38px"></div>
+                <div class="particle" style="top:20%;left:80%;--d:4s;--s:1.5px;--dx:-18px;--dy:-30px"></div>
+                <div class="particle" style="top:60%;left:15%;--d:5s;--s:2.5px;--dx:28px;--dy:-42px"></div>
+                <div class="particle" style="top:70%;left:75%;--d:3.5s;--s:1.5px;--dx:-20px;--dy:-28px"></div>
+                <div class="particle" style="top:40%;left:90%;--d:4.5s;--s:2px;--dx:-24px;--dy:-36px"></div>
+                <div class="particle" style="top:80%;left:45%;--d:3s;--s:1px;--dx:16px;--dy:-24px"></div>
+                <div class="particle" style="top:15%;left:55%;--d:5.5s;--s:2px;--dx:20px;--dy:-32px"></div>
+                <div class="particle" style="top:50%;left:30%;--d:4s;--s:1.5px;--dx:-22px;--dy:-34px"></div>
+                <div class="particle" style="top:35%;left:65%;--d:3.8s;--s:2px;--dx:18px;--dy:-40px"></div>
+                <div class="particle" style="top:90%;left:20%;--d:4.2s;--s:1px;--dx:14px;--dy:-20px"></div>
+                <div class="particle" style="top:25%;left:40%;--d:4.8s;--s:1.8px;--dx:26px;--dy:-44px"></div>
+                <div class="particle" style="top:65%;left:85%;--d:3.2s;--s:1.2px;--dx:-16px;--dy:-26px"></div>
+                <div class="particle" style="top:45%;left:5%;--d:5.2s;--s:2.2px;--dx:30px;--dy:-38px"></div>
+                <div class="particle" style="top:85%;left:60%;--d:3.6s;--s:1.6px;--dx:-12px;--dy:-22px"></div>
+                <div class="particle" style="top:5%;left:70%;--d:4.4s;--s:1.4px;--dx:20px;--dy:-30px"></div>
+                <div class="particle" style="top:12%;left:48%;--d:4.1s;--s:1.9px;--dx:22px;--dy:-34px"></div 
+                <div class="star-line" style="top:20%;left:15%;--dx:-40px;--dy:55px;--d:5s"></div>
+                <div class="star-line" style="top:50%;left:80%;--dx:35px;--dy:-50px;--d:6s"></div>
+                <div class="star-line" style="top:75%;left:40%;--dx:-28px;--dy:-38px;--d:4.5s"></div>
+                <div class="star-line" style="top:30%;left:60%;--dx:42px;--dy:44px;--d:5.5s"></div>
+                <div class="star-line" style="top:85%;left:25%;--dx:22px;--dy:-30px;--d:6.5s"></div>
+                <div class="star-line" style="top:10%;left:90%;--dx:-36px;--dy:48px;--d:4.8s"></div>
+                <div class="star-line" style="top:55%;left:20%;--dx:-22px;--dy:36px;--d:5.2s"></div>
+                <div class="star-line" style="top:35%;left:75%;--dx:30px;--dy:-44px;--d:6.2s"></div>
+                <div class="star-line" style="top:65%;left:50%;--dx:-34px;--dy:-22px;--d:4.9s"></div>
+                <div class="star-line" style="top:15%;left:45%;--dx:26px;--dy:40px;--d:5.8s"></div>
+                <div class="circuit-line" style="top:40%;left:20%;--w:100px;--d:8s"></div>
+                <div class="circuit-line" style="top:60%;left:70%;--w:80px;--d:9s;--dir:1"></div>
+                <div class="circuit-line" style="top:25%;left:45%;--w:120px;--d:7.5s"></div>
+                <div class="circuit-line" style="top:78%;left:30%;--w:90px;--d:8.5s"></div>
+            </div>
+            <div class="hero__inner">
+                <div class="hero__badge">⚡ AI-Powered Automation</div>
+                <h1 class="hero__title">
+                    <span class="hero__line">Your operations</span>
+                    <span class="hero__line">shouldn't wait</span>
+                    <span class="hero__line hero__line--accent">for <em>You.</em></span>
+                </h1>
+                <p class="hero__sub">I build custom AI automations for businesses that want to scale without the manual grind.</p>
+                <div class="hero__btns">
+                    <a href="#automations" class="btn btn--ghost">See My Work</a>
+                    <a href="#contact" class="btn btn--solid">Book a Call</a>
+                </div>
+                <div class="hero__scroll" aria-hidden="true">
+                    <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.2" opacity=".3"/><circle cx="8" cy="7" r="2" fill="currentColor" opacity=".5"><animate attributeName="cy" values="7;14;7" dur="2s" repeatCount="indefinite"/></circle></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- TICKER -->
+        <section class="section section--ticker" aria-label="Tools and technologies used">
+            <div class="ticker-wrap">
+                <div class="ticker-track">
+                    <span class="ticker-item">n8n</span>
+                    <span class="ticker-item">Pinecone</span>
+                    <span class="ticker-item">Supabase</span>
+                    <span class="ticker-item">OpenAI</span>
+                    <span class="ticker-item">Claude</span>
+                    <span class="ticker-item">LinkedIn API</span>
+                    <span class="ticker-item">Zapier</span>
+                    <span class="ticker-item">Tally Forms</span>
+                    <span class="ticker-item">Google Sheets</span>
+                    <span class="ticker-item">Make</span>
+                    <span class="ticker-item">Slack</span>
+                    <span class="ticker-item">WhatsApp API</span>
+                    <span class="ticker-item">Gmail API</span>
+                    <span class="ticker-item">HubSpot</span>
+                    <span class="ticker-item">n8n</span>
+                    <span class="ticker-item">Pinecone</span>
+                    <span class="ticker-item">Supabase</span>
+                    <span class="ticker-item">OpenAI</span>
+                    <span class="ticker-item">Claude</span>
+                    <span class="ticker-item">LinkedIn API</span>
+                    <span class="ticker-item">Zapier</span>
+                    <span class="ticker-item">Tally Forms</span>
+                    <span class="ticker-item">Google Sheets</span>
+                    <span class="ticker-item">Make</span>
+                    <span class="ticker-item">Slack</span>
+                    <span class="ticker-item">WhatsApp API</span>
+                    <span class="ticker-item">Gmail API</span>
+                    <span class="ticker-item">HubSpot</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section about" data-animate>
+            <div class="about__inner">
+                <div class="about__photo-wrap">
+                    <div class="about__photo">
+                        <div class="about__photo-ring"></div>
+                        <img src="uploads/profile_pic.png" alt="Ali Raza — AI Automation Specialist" class="about__photo-img">
+                    </div>
+                </div>
+                <div class="about__text">
+                    <span class="label" aria-label="Section 002">002 / About</span>
+                    <h2>Hey, I'm <span class="cyan">Ali Raza</span>.</h2>
+                    <p>I'm an AI automation specialist who builds intelligent workflows that run on autopilot. I work with real estate agents, coaches, consultants, and marketing agencies to automate lead capture, follow-ups, inbox management, content creation, and customer support — all powered by n8n and modern AI tools.</p>
+                    <p>Every automation I build is custom-tailored and production-ready. No templates. No fluff. Just systems that work while you focus on what actually matters.</p>
+                    <div class="about__stats">
+                        <div class="about__stat"><span class="about__stat-num">24/7</span><span class="about__stat-label">Systems Running</span></div>
+                        <div class="about__stat"><span class="about__stat-num">0</span><span class="about__stat-label">Leads Lost</span></div>
+                        <div class="about__stat"><span class="about__stat-num">100%</span><span class="about__stat-label">Custom Built</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEM -->
+        <section id="problem" class="section section--compact problem" data-animate>
+            <div class="problem__inner">
+                <div class="problem__head">
+                    <span class="label">The Struggle</span>
+                    <h2>Still doing this <span class="cyan">manually?</span></h2>
+                </div>
+                <div class="problem__grid">
+                    <div class="problem-card reveal-right" data-delay="0">
+                        <div class="problem-card__icon">⏳</div>
+                        <h3>Wasting Hours</h3>
+                        <p>Spending 3+ hours daily on manual follow-ups, data entry, and repetitive tasks.</p>
+                    </div>
+                    <div class="problem-card reveal-right" data-delay="0.08">
+                        <div class="problem-card__icon">📉</div>
+                        <h3>Losing Leads</h3>
+                        <p>Leads slipping through cracks because you can't respond fast enough to every inquiry.</p>
+                    </div>
+                    <div class="problem-card reveal-right" data-delay="0.16">
+                        <div class="problem-card__icon">📧</div>
+                        <h3>Inbox Chaos</h3>
+                        <p>Drowning in emails, important messages buried, no time to focus on high-value work.</p>
+                    </div>
+                    <div class="problem-card reveal-right" data-delay="0.24">
+                        <div class="problem-card__icon">🔇</div>
+                        <h3>Inconsistent Content</h3>
+                        <p>Knowing you should post on LinkedIn but never finding the time to create quality content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTION / BEFORE VS AFTER -->
+        <section id="solution" class="section section--compact solution" data-animate>
+            <div class="solution__inner">
+                <div class="solution__head">
+                    <span class="label">The Transformation</span>
+                    <h2>From Chaos to <span class="cyan">Autopilot</span></h2>
+                </div>
+                <div class="solution__compare">
+                    <div class="solution__side solution__side--before">
+                        <h3>❌ Without Automation</h3>
+                        <ul>
+                            <li>Manual lead tracking in messy spreadsheets</li>
+                            <li>Late or forgotten follow-ups</li>
+                            <li>Inbox chaos, important emails buried</li>
+                            <li>Inconsistent posting, no strategy</li>
+                            <li>Working late, high stress</li>
+                            <li><strong>Lost revenue & wasted time</strong></li>
+                        </ul>
+                    </div>
+                    <div class="solution__divider" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 20h24M26 14l6 6-6 6" stroke="#00BFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="solution__side solution__side--after">
+                        <h3>✅ With Ali's Automation</h3>
+                        <ul>
+                            <li>Leads auto-captured, tracked & scored</li>
+                            <li>Instant personalized follow-ups 24/7</li>
+                            <li>Smart inbox — only see what matters</li>
+                            <li>Consistent content on autopilot</li>
+                            <li>Focus on your actual business</li>
+                            <li><strong>More revenue & peace of mind</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="automations" class="section automations" data-animate>
+            <div class="automations__inner">
+                <div class="automations__head">
+                    <span class="label" aria-label="Section 003">003 / Projects</span>
+                    <h2>Systems that <span class="cyan">do the work.</span></h2>
+                    <p class="automations__head-sub">Click any project to see the full workflow, tech stack, and details.</p>
+                </div>
+                <div class="cards-grid">
+                    <article class="card reveal-right" data-delay="0" data-modal="m-lead" tabindex="0" role="button" aria-label="View Lead Capture project details">
+                        <div class="card__img"><img src="screenshots/lead.png" alt="Lead Capture Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                        <div class="card__body">
+                            <h3>Lead Capture &amp; Follow-up</h3>
+                            <p>Captures leads, auto-follows up, tracks in Sheets, sends AI daily summary.</p>
+                            <div class="card__tags"><span>Lead Gen</span><span>Email</span><span>Sheets</span><span>AI</span></div>
+                            <span class="card__cta">View Full Workflow →</span>
+                        </div>
+                    </article>
+                    <article class="card reveal-right" data-delay="0.08" data-modal="m-chat" tabindex="0" role="button" aria-label="View AI Chatbots project details">
+                        <div class="card__img"><img src="screenshots/chatbot.png" alt="AI Chatbot Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                        <div class="card__body">
+                            <h3>AI Chatbots</h3>
+                            <p>Smart bots answering from your database using Pinecone or Supabase.</p>
+                            <div class="card__tags"><span>Pinecone</span><span>Supabase</span><span>RAG</span><span>AI</span></div>
+                            <span class="card__cta">View Full Workflow →</span>
+                        </div>
+                    </article>
+                    <article class="card reveal-right" data-delay="0.16" data-modal="m-inbox" tabindex="0" role="button" aria-label="View Inbox Manager project details">
+                        <div class="card__img"><img src="screenshots/inbox.png" alt="Inbox Manager Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                        <div class="card__body">
+                            <h3>Inbox Manager</h3>
+                            <p>Auto-labels, drafts replies, summarizes threads, delivers daily digest.</p>
+                            <div class="card__tags"><span>Email</span><span>AI</span><span>Drafts</span><span>Digest</span></div>
+                            <span class="card__cta">View Full Workflow →</span>
+                        </div>
+                    </article>
+                    <article class="card reveal-right" data-delay="0.24" data-modal="m-linkedin" tabindex="0" role="button" aria-label="View LinkedIn Content project details">
+                        <div class="card__img"><img src="screenshots/linkedin.png" alt="LinkedIn Content Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                        <div class="card__body">
+                            <h3>LinkedIn Content Creation</h3>
+                            <p>Generates posts from ideas — research, write, image, auto-post.</p>
+                            <div class="card__tags"><span>LinkedIn</span><span>Content</span><span>AI</span><span>Auto</span></div>
+                            <span class="card__cta">View Full Workflow →</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+<!-- VIDEO DEMO -->
+        <section id="demo" class="section section--compact demo" data-animate>
+            <div class="demo__inner">
+                <div class="demo__head">
+                    <span class="label">003.5 / Live Demo</span>
+                    <h2>Watch the automation <span class="cyan">in action.</span></h2>
+                    <p class="demo__sub">A real lead capture system built for a real estate agent — from form submission to AI follow-up, fully automated.</p>
+                </div>
+                <div class="demo__player-wrap">
+                    <div class="demo__player" id="demoPlayer">
+                        <iframe
+    id="demoIframe"
+    src="https://www.youtube.com/embed/yZ9bG4DIz7s"
+    title="Lead Capture Automation Demo — Real Estate"
+    frameborder="0"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+    allowfullscreen
+    loading="lazy"
+></iframe>
+                    </div>
+                    <div class="demo__meta">
+                        <div class="demo__meta-left">
+                            <span class="demo__badge">▶ Now Playing</span>
+                            <span class="demo__title">Lead Capture Automation — Real Estate Agents</span>
+                            <span class="demo__dur">⏱ 2 min 20 sec &nbsp;·&nbsp; No fluff. Just the system.</span>
+                        </div>
+                        <a href="#contact" class="btn btn--solid demo__cta">Build Mine →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section section--compact faq" data-animate>
+            <div class="faq__inner">
+                <div class="faq__head">
+                    <span class="label">004 / FAQ</span>
+                    <h2>Common <span class="cyan">Questions</span></h2>
+                    <p class="faq__head-sub">Everything you need to know before we start.</p>
+                </div>
+                <div class="faq__list">
+                    <div class="faq-item faq-item--visible">
+                        <button class="faq-q" aria-expanded="false">Do I need technical knowledge?</button>
+                        <div class="faq-a"><p>Not at all. I build everything to be plug-and-play. If you can check email or use a spreadsheet, you can use these automations. I handle all the technical setup.</p></div>
+                    </div>
+                    <div class="faq-item faq-item--visible">
+                        <button class="faq-q" aria-expanded="false">Will this work with tools I already use?</button>
+                        <div class="faq-a"><p>Most likely. n8n connects with 400+ apps including Gmail, Slack, Trello, HubSpot, Google Sheets, WhatsApp, and more. We'll check your stack before starting.</p></div>
+                    </div>
+                    <div class="faq-item faq-item--visible">
+                        <button class="faq-q" aria-expanded="false">How long does it take to build?</button>
+                        <div class="faq-a"><p>Simple automations take 3-5 days. Complex AI chatbots or multi-step workflows may take 5-7 days. We'll agree on a timeline before starting.</p></div>
+                    </div>
+                    <div class="faq-item faq-item--visible">
+                        <button class="faq-q" aria-expanded="false">Is my business data safe?</button>
+                        <div class="faq-a"><p>Yes. I use secure, encrypted connections and never store your data. Your automations run on your own accounts or secure cloud environments you control.</p></div>
+                    </div>
+                    <div class="faq-item faq-item--visible">
+                        <button class="faq-q" aria-expanded="false">Do I own the automation?</button>
+                        <div class="faq-a"><p>You own it 100%. Once built and deployed, it's yours. No monthly subscription to me. You only pay for the tools you use (like n8n cloud or API credits).</p></div>
+                    </div>
+                    <button class="faq-show-more" id="faqShowMore" aria-expanded="false">Show More Questions</button>
+                    <div class="faq-hidden" id="faqHidden">
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false">What happens if something breaks?</button>
+                            <div class="faq-a"><p>I provide post-launch support to fix any issues. Automations are built with error handling, but if something unexpected happens, I'll resolve it quickly.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false">Can I customize things later?</button>
+                            <div class="faq-a"><p>Absolutely. n8n workflows are visual and easy to modify. I can teach you how to make small changes, or handle updates for you.</p></div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-q" aria-expanded="false">How much does it cost?</button>
+                            <div class="faq-a"><p>Pricing depends on complexity. Simple automations start at a base rate, while complex AI systems are quoted individually. Book a call for an exact quote.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section contact">
+            <div class="contact__inner">
+                <div class="contact__info">
+                    <span class="label" aria-label="Section 005">005 / Contact</span>
+                    <h2>Let's build something <span class="cyan">intelligent.</span></h2>
+                    <p>Ready to automate your workflow? Reach out directly or fill out the form. I typically respond within 24 hours.</p>
+                    <a href="https://mail.google.com/mail/?view=cm&to=aiautomationexpert786@gmail.com" target="_blank" rel="noopener" class="contact-row" aria-label="Send email to Ali">
+                        <span class="contact-row__icon">✉</span>
+                        <div><span class="contact-row__label">Email</span><span class="contact-row__val">aiautomationexpert786@gmail.com</span></div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ar-automation-labs/" target="_blank" rel="noopener" class="contact-row" aria-label="Connect on LinkedIn">
+                        <span class="contact-row__icon">in</span>
+                        <div><span class="contact-row__label">LinkedIn</span><span class="contact-row__val">Connect with me</span></div>
+                    </a>
+                    <a href="https://www.youtube.com/@AutomateWithAli" target="_blank" rel="noopener" class="contact-row" aria-label="Watch on YouTube">
+                        <span class="contact-row__icon">▶</span>
+                        <div><span class="contact-row__label">YouTube</span><span class="contact-row__val">Watch my work</span></div>
+                    </a>
+                    <a href="https://x.com/AR_AiAutomation" target="_blank" rel="noopener" class="contact-row" aria-label="Follow on X">
+                        <span class="contact-row__icon">𝕏</span>
+                        <div><span class="contact-row__label">X / Twitter</span><span class="contact-row__val">Follow updates</span></div>
+                    </a>
+                </div>
+                <form class="contact__form" id="contactForm" novalidate aria-label="Contact form">
+                    <div class="field">
+                        <label for="cf-name">YOUR NAME</label>
+                        <input type="text" id="cf-name" name="name" placeholder="John Doe" required autocomplete="name" aria-required="true">
+                    </div>
+                    <div class="field">
+                        <label for="cf-email">EMAIL ADDRESS</label>
+                        <input type="email" id="cf-email" name="email" placeholder="john@company.com" required autocomplete="email" aria-required="true">
+                    </div>
+                    <div class="field">
+                        <label for="cf-who">WHO ARE YOU?</label>
+                        <select id="cf-who" name="who" required aria-required="true">
+                            <option value="" disabled selected>Select your role...</option>
+                            <option value="coaching">Coaching Center</option>
+                            <option value="real-estate">Real Estate Agent</option>
+                            <option value="marketing">Marketing Agency</option>
+                            <option value="consultant">Consultant</option>
+                            <option value="saas">SaaS Company</option>
+                            <option value="ecommerce">E-commerce Business</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="cf-service">WHAT DO YOU NEED?</label>
+                        <select id="cf-service" name="service" required aria-required="true">
+                            <option value="" disabled selected>Select a service...</option>
+                            <option value="lead-capture">Lead Capture &amp; Follow-up</option>
+                            <option value="ai-chatbot">AI Chatbot</option>
+                            <option value="inbox-manager">Inbox Manager</option>
+                            <option value="linkedin-content">LinkedIn Content Creation</option>
+                            <option value="custom">Custom Automation</option>
+                            <option value="other">Other / Not Sure</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="cf-msg">TELL ME ABOUT YOUR PROJECT</label>
+                        <textarea id="cf-msg" name="message" rows="4" placeholder="Describe what you want to automate..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--solid btn--full" id="submitBtn" aria-label="Send contact message">
+                        <span class="btn__text">Send Message</span>
+                        <span class="btn__load" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" stroke-dasharray="30" stroke-dashoffset="8"><animateTransform attributeName="transform" type="rotate" from="0 9 9" to="360 9 9" dur="0.8s" repeatCount="indefinite"/></circle></svg></span>
+                        <span class="btn__ok" aria-hidden="true">✓ Sent!</span>
+                    </button>
+                    <p class="form-msg" id="formMsg" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                    <path d="M8 32L20 8L32 32" stroke="#00BFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 24H26" stroke="#00BFFF" stroke-width="2" stroke-linecap="round"/>
+                    <rect x="2" y="2" width="36" height="36" rx="8" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <div><span class="footer__brand-name">AR Automation Labs</span><span class="footer__brand-sub">AI Automations That Work While You Don't</span></div>
+            </div>
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#automations">Projects</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="footer__socials">
+                <a href="https://www.linkedin.com/in/ar-automation-labs/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+                <a href="mailto:aiautomationexpert786@gmail.com" aria-label="Email">✉</a>
+                <a href="#" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+                <a href="#" target="_blank" rel="noopener" aria-label="X Twitter">𝕏</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2025 AR Automation Labs. All rights reserved.</span>
+            <span>Built with passion &amp; AI automation.</span>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+    <div class="modal-overlay" id="m-lead" role="dialog" aria-modal="true" aria-labelledby="ml-title">
+        <div class="modal">
+            <button class="modal__x" aria-label="Close modal">&times;</button>
+            <div class="modal__header"><span class="modal__badge">Lead Capture</span><h3 id="ml-title">Lead Capture &amp; Follow-up</h3></div>
+            <div class="modal__img-big"><img src="screenshots/lead.png" alt="Lead Capture Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
+            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>Gmail API</span><span>Google Sheets</span><span>OpenAI</span><span>Tally Forms</span></div></div>
+            <p class="modal__desc">Captures leads from any source and automatically follows up with personalized emails. Every lead is tracked in Google Sheets with AI-generated daily summaries.</p>
+            <div class="modal__steps">
+                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Lead Captured</strong><span>From forms, DMs, or landing pages</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>Auto-Follow Up</strong><span>Personalized email sent within minutes</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>Tracked in Sheets</strong><span>Real-time Google Sheets dashboard</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Daily AI Summary</strong><span>AI-generated report delivered daily</span></div></div>
+            </div>
+            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-chat" role="dialog" aria-modal="true" aria-labelledby="mc-title">
+        <div class="modal">
+            <button class="modal__x" aria-label="Close modal">&times;</button>
+            <div class="modal__header"><span class="modal__badge">AI Chatbots</span><h3 id="mc-title">AI Chatbots</h3></div>
+            <div class="modal__img-big"><img src="screenshots/chatbot.png" alt="AI Chatbot Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
+            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>Pinecone</span><span>Supabase</span><span>OpenAI</span><span>Claude</span></div></div>
+            <p class="modal__desc">Intelligent chatbots that answer questions using your own data. Built with RAG using Pinecone or Supabase, providing accurate answers 24/7.</p>
+            <div class="modal__steps">
+                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Knowledge Base</strong><span>Your docs indexed in vector DB</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>User Asks Question</strong><span>From website, WhatsApp, or app</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>RAG Processing</strong><span>AI retrieves &amp; generates answer</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Smart Response</strong><span>Accurate answer delivered instantly</span></div></div>
+            </div>
+            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-inbox" role="dialog" aria-modal="true" aria-labelledby="mi-title">
+        <div class="modal">
+            <button class="modal__x" aria-label="Close modal">&times;</button>
+            <div class="modal__header"><span class="modal__badge">Inbox Manager</span><h3 id="mi-title">Inbox Manager</h3></div>
+            <div class="modal__img-big"><img src="screenshots/inbox.png" alt="Inbox Manager Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
+            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>Gmail API</span><span>OpenAI</span><span>Google Calendar</span><span>Slack</span></div></div>
+            <p class="modal__desc">Categorizes emails, auto-labels by priority, drafts replies for important messages, and delivers a concise daily summary.</p>
+            <div class="modal__steps">
+                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Email Received</strong><span>New email arrives in your inbox</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>AI Categorizes</strong><span>Labeled by priority &amp; urgency</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>Drafts Replies</strong><span>AI drafts replies for important emails</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Daily Digest</strong><span>Summary of priorities delivered</span></div></div>
+            </div>
+            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="m-linkedin" role="dialog" aria-modal="true" aria-labelledby="mlin-title">
+        <div class="modal">
+            <button class="modal__x" aria-label="Close modal">&times;</button>
+            <div class="modal__header"><span class="modal__badge">LinkedIn Content</span><h3 id="mlin-title">LinkedIn Content Creation</h3></div>
+            <div class="modal__img-big"><img src="screenshots/linkedin.png" alt="LinkedIn Content Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
+            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>OpenAI</span><span>DALL·E</span><span>LinkedIn API</span><span>Google Sheets</span></div></div>
+            <p class="modal__desc">Generates posts from your idea spreadsheet — researches topics, writes copy, creates images, and posts after your approval.</p>
+            <div class="modal__steps">
+                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Content Idea</strong><span>From your spreadsheet of ideas</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>AI Research &amp; Write</strong><span>Topic researched &amp; post written</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>Image Generated</strong><span>AI creates relevant visual</span></div></div>
+                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Your Approval</strong><span>Review &amp; approve before posting</span></div></div>
+            </div>
+            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat__btn" id="chatToggle" aria-label="Open AI assistant chat" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="chat__win" id="chatWin" hidden role="dialog" aria-label="Chat with Ali's AI assistant">
+            <div class="chat__head">
+                <div class="chat__head-info"><span class="chat__av">⚡</span><div><span class="chat__name">Ali Automates</span><span class="chat__st">● Online — AI Assistant</span></div></div>
+                <button class="chat__close" id="chatClose" aria-label="Close chat">&times;</button>
+            </div>
+            <div class="chat__msgs" id="chatMsgs">
+                <div class="cmsg cmsg--bot"><div class="cmsg__b">Hey! 👋 I'm Ali's AI assistant. Ask me anything about his automation services or get a quick quote!</div></div>
+                <div class="cqa">
+                    <button class="qa" data-m="What automations do you offer?">🤖 What do you offer?</button>
+                    <button class="qa" data-m="How much do automations cost?">💰 Pricing info</button>
+                    <button class="qa" data-m="I want to automate my lead capture">📋 Lead automation</button>
+                    <button class="qa" data-m="Book a call with Ali">📅 Book a call</button>
+                    <button class="qa" data-m="What tools do you use?">🛠️ Tools used</button>
+                    <button class="qa" data-m="How long does setup take?">⏱️ Setup time</button>
+                </div>
+            </div>
+            <form class="chat__in" id="chatForm">
+                <input type="text" class="chat__field" id="chatIn" placeholder="Type your message..." autocomplete="off" aria-label="Chat message">
+                <button type="submit" class="chat__send" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M16 2L8 10M16 2l-4 14-3.5-6-6-3.5L16 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
