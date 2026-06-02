@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ar-automation-lab.netlify.app/sitemap.xml
+Sitemap: https://ar-automation-labs.vercel.app/sitemap.xml
