@@ -152,7 +152,7 @@
       msgs.appendChild(ty);msgs.scrollTop=msgs.scrollHeight;
 
       /* Proxy via Netlify Function — calls n8n AI chatbot securely */
-      fetch('/.netlify/functions/chat',{
+      fetch('/api/chat',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({message:text,sessionId:'user-'+Date.now()})
@@ -222,7 +222,7 @@
       var data={name:name,email:email,who:who,service:service,message:form.querySelector('#cf-msg')?form.querySelector('#cf-msg').value.trim():'',timestamp:new Date().toISOString(),source:'Website Contact Form'};
 
       /* Proxy via Netlify Function — real webhook URL never exposed to browser */
-      var promise=fetch('/.netlify/functions/contact',{
+      var promise=fetch('/api/contact',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify(data)
