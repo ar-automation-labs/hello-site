@@ -10,6 +10,9 @@
     <meta name="robots" content="index, follow, max-snippet:-1">
     <link rel="canonical" href="https://ar-automation-labs.vercel.app/">
 
+    <!-- Google Search Console verification: paste your code inside content="" below -->
+    <meta name="google-site-verification" content="PASTE_YOUR_GSC_CODE_HERE">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ar-automation-labs.vercel.app/">
     <meta property="og:title" content="AR Automation Labs | AI Automation Specialist — Ali Raza">
@@ -65,8 +68,7 @@
           ],
           "sameAs": [
             "https://www.linkedin.com/in/ar-automation-labs/",
-            "https://www.youtube.com/@AutomateWithAli",
-            "https://x.com/AR_AiAutomation"
+            "https://wa.me/923236290238"
           ]
         },
         {
@@ -92,8 +94,7 @@
           "email": "mailto:aiautomationexpert786@gmail.com",
           "sameAs": [
             "https://www.linkedin.com/in/ar-automation-labs/",
-            "https://www.youtube.com/@AutomateWithAli",
-            "https://x.com/AR_AiAutomation"
+            "https://wa.me/923236290238"
           ]
         },
         {
@@ -157,20 +158,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <div class="grid-bg" aria-hidden="true"></div>
     <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
 
     <!-- HEADER -->
     <header class="header" role="banner">
         <div class="header__inner">
-            <a href="#hero" class="header__logo" aria-label="AR Automation Labs - Home">
-                <svg class="header__logo-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                    <path d="M8 32L20 8L32 32" stroke="#00BFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 24H26" stroke="#00BFFF" stroke-width="2" stroke-linecap="round"/>
-                    <rect x="2" y="2" width="36" height="36" rx="8" stroke="url(#lg1)" stroke-width="1.5"/>
-                    <defs><linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/></linearGradient></defs>
-                </svg>
-                <span class="header__logo-text">AR <span class="header__logo-text--thin">AUTOMATION LABS</span></span>
+            <a href="#hero" class="brand" aria-label="AR Automation Labs - Home">
+                <span class="brand__mark" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <defs>
+                            <linearGradient id="arGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/>
+                            </linearGradient>
+                            <linearGradient id="arRing" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="rgba(0,191,255,.85)"/><stop offset="1" stop-color="rgba(0,85,255,.25)"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="url(#arRing)" stroke-width="1.4"/>
+                        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGrad)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
+                    </svg>
+                </span>
+                <span class="brand__txt">
+                    <span class="brand__name">AR</span>
+                    <span class="brand__sub">Automation Labs</span>
+                </span>
             </a>
             <nav class="header__nav" role="navigation" aria-label="Main">
                 <a href="#hero" class="header__nav-link">Home</a>
@@ -187,6 +200,9 @@
 
     <!-- MOBILE MENU -->
     <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+        <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
         <div class="mobile-menu__inner">
             <a href="#hero" class="mobile-menu__link">Home</a>
             <a href="#about" class="mobile-menu__link">About</a>
@@ -386,42 +402,42 @@
                     <p class="automations__head-sub">Click any project to see the full workflow, tech stack, and details.</p>
                 </div>
                 <div class="cards-grid">
-                    <article class="card reveal-right" data-delay="0" data-modal="m-lead" tabindex="0" role="button" aria-label="View Lead Capture project details">
-                        <div class="card__img"><img src="screenshots/lead.png" alt="Lead Capture Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                    <a class="card reveal-right" data-delay="0" href="lead-capture.html" target="_blank" rel="noopener" aria-label="Open Lead Capture project full page">
+                        <div class="card__img"><span class="card__shine" aria-hidden="true"></span><img src="screenshots/lead.png" alt="Lead Capture Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
                         <div class="card__body">
                             <h3>AI-Powered Lead Qualification &amp; Appointment System</h3>
                             <p>Capture. Qualify. Respond. Book. Track. Automatically.</p>
                             <div class="card__tags"><span></span><span>Gmail</span><span>Google Sheet</span><span>Supabase</span><span>Calendly</span><span>Telegram</span></div>
-                            <span class="card__cta">View Full Workflow →</span>
+                            <span class="card__cta">View Full Workflow <span class="card__cta-arrow">→</span></span>
                         </div>
-                    </article>
-                    <article class="card reveal-right" data-delay="0.08" data-modal="m-chat" tabindex="0" role="button" aria-label="View AI Chatbots project details">
-                        <div class="card__img"><img src="screenshots/chatbot.png" alt="AI Chatbot Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                    </a>
+                    <a class="card reveal-right" data-delay="0.08" href="ai-chatbots.html" target="_blank" rel="noopener" aria-label="Open AI Chatbots project full page">
+                        <div class="card__img"><span class="card__shine" aria-hidden="true"></span><img src="screenshots/chatbot.png" alt="AI Chatbot Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
                         <div class="card__body">
                             <h3>AI Chatbot Automation for Business Support</h3>
                             <p>Smart bots answering from your database using Pinecone or Supabase.</p>
                             <div class="card__tags"><span>Pinecone</span><span>Supabase</span><span>RAG</span><span>AI</span></div>
-                            <span class="card__cta">View Full Workflow →</span>
+                            <span class="card__cta">View Full Workflow <span class="card__cta-arrow">→</span></span>
                         </div>
-                    </article>
-                    <article class="card reveal-right" data-delay="0.16" data-modal="m-inbox" tabindex="0" role="button" aria-label="View Inbox Manager project details">
-                        <div class="card__img"><img src="screenshots/inbox.png" alt="Inbox Manager Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                    </a>
+                    <a class="card reveal-right" data-delay="0.16" href="inbox-manager.html" target="_blank" rel="noopener" aria-label="Open Inbox Manager project full page">
+                        <div class="card__img"><span class="card__shine" aria-hidden="true"></span><img src="screenshots/inbox.png" alt="Inbox Manager Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
                         <div class="card__body">
                             <h3>AI Inbox Management Automation</h3>
                             <p>Auto-labels, drafts replies, summarizes threads, delivers daily digest.</p>
                             <div class="card__tags"><span>Email</span><span>AI</span><span>Drafts</span><span>Digest</span></div>
-                            <span class="card__cta">View Full Workflow →</span>
+                            <span class="card__cta">View Full Workflow <span class="card__cta-arrow">→</span></span>
                         </div>
-                    </article>
-                    <article class="card reveal-right" data-delay="0.24" data-modal="m-linkedin" tabindex="0" role="button" aria-label="View LinkedIn Content project details">
-                        <div class="card__img"><img src="screenshots/linkedin.png" alt="LinkedIn Content Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
+                    </a>
+                    <a class="card reveal-right" data-delay="0.24" href="linkedin-content.html" target="_blank" rel="noopener" aria-label="Open LinkedIn Content project full page">
+                        <div class="card__img"><span class="card__shine" aria-hidden="true"></span><img src="screenshots/linkedin.png" alt="LinkedIn Content Workflow" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:0;"></div>
                         <div class="card__body">
                             <h3>LinkedIn Content Automation with AI</h3>
                             <p>Generates posts from ideas — research, write, image, auto-post.</p>
                             <div class="card__tags"><span>LinkedIn</span><span>Content</span><span>AI</span><span>Auto</span></div>
-                            <span class="card__cta">View Full Workflow →</span>
+                            <span class="card__cta">View Full Workflow <span class="card__cta-arrow">→</span></span>
                         </div>
-                    </article>
+                    </a>
                 </div>
             </div>
         </section>
@@ -514,21 +530,22 @@
                     <span class="label" aria-label="Section 005">005 / Contact</span>
                     <h2>Let's build something <span class="cyan">intelligent.</span></h2>
                     <p>Ready to automate your workflow? Reach out directly or fill out the form. I typically respond within 24 hours.</p>
-                    <a href="https://mail.google.com/mail/?view=cm&to=aiautomationexpert786@gmail.com" target="_blank" rel="noopener" class="contact-row" aria-label="Send email to Ali">
-                        <span class="contact-row__icon">✉</span>
-                        <div><span class="contact-row__label">Email</span><span class="contact-row__val"><span class="__cf_email__" data-cfemail="c8a9a1a9bdbca7a5a9bca1a7a6adb0b8adbabcfff0fe88afa5a9a1a4e6aba7a5">[email&#160;protected]</span></span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&to=aiautomationexpert786@gmail.com" target="_blank" rel="noopener" class="contact-row" aria-label="Send an email to Ali">
+                        <span class="contact-row__icon">&#9993;</span>
+                        <div><span class="contact-row__label">Email</span><span class="contact-row__val">Connect with me</span></div>
+                        <span class="contact-row__go" aria-hidden="true">&rarr;</span>
                     </a>
                     <a href="https://www.linkedin.com/in/ar-automation-labs/" target="_blank" rel="noopener" class="contact-row" aria-label="Connect on LinkedIn">
                         <span class="contact-row__icon">in</span>
-                        <div><span class="contact-row__label">LinkedIn</span><span class="contact-row__val">Connect with me</span></div>
+                        <div><span class="contact-row__label">LinkedIn</span><span class="contact-row__val">Let's connect</span></div>
+                        <span class="contact-row__go" aria-hidden="true">&rarr;</span>
                     </a>
-                    <a href="https://www.youtube.com/@AutomateWithAli" target="_blank" rel="noopener" class="contact-row" aria-label="Watch on YouTube">
-                        <span class="contact-row__icon">▶</span>
-                        <div><span class="contact-row__label">YouTube</span><span class="contact-row__val">Watch my work</span></div>
-                    </a>
-                    <a href="https://x.com/AR_AiAutomation" target="_blank" rel="noopener" class="contact-row" aria-label="Follow on X">
-                        <span class="contact-row__icon">𝕏</span>
-                        <div><span class="contact-row__label">X / Twitter</span><span class="contact-row__val">Follow updates</span></div>
+                    <a href="https://wa.me/923236290238?text=Hi%20Ali%2C%20I%27d%20like%20to%20talk%20about%20an%20automation." target="_blank" rel="noopener" class="contact-row" aria-label="Chat on WhatsApp">
+                        <span class="contact-row__icon">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.52 3.76 1.42 5.33L2 22l4.96-1.58a9.8 9.8 0 005.08 1.4h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2zm0 17.96h-.01a8.2 8.2 0 01-4.17-1.14l-.3-.18-2.94.94.95-2.87-.2-.3a8.14 8.14 0 01-1.25-4.37c0-4.5 3.67-8.16 8.18-8.16 2.18 0 4.23.85 5.78 2.4a8.1 8.1 0 012.39 5.77c0 4.5-3.67 8.16-8.18 8.16zm4.49-6.11c-.25-.13-1.46-.72-1.68-.8-.23-.08-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.19-.54.06a6.7 6.7 0 01-1.97-1.21 7.4 7.4 0 01-1.36-1.7c-.14-.24-.02-.37.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+                        </span>
+                        <div><span class="contact-row__label">WhatsApp</span><span class="contact-row__val">Message me directly</span></div>
+                        <span class="contact-row__go" aria-hidden="true">&rarr;</span>
                     </a>
                 </div>
                 <form class="contact__form" id="contactForm" novalidate aria-label="Contact form">
@@ -584,10 +601,10 @@
     <footer class="footer" role="contentinfo">
         <div class="footer__inner">
             <div class="footer__brand">
-                <svg width="28" height="28" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-                    <path d="M8 32L20 8L32 32" stroke="#00BFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 24H26" stroke="#00BFFF" stroke-width="2" stroke-linecap="round"/>
-                    <rect x="2" y="2" width="36" height="36" rx="8" stroke="currentColor" stroke-width="1.5"/>
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <defs><linearGradient id="arGradF" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/></linearGradient></defs>
+                    <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="rgba(0,191,255,.4)" stroke-width="1.4"/>
+                    <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGradF)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
                 </svg>
                 <div><span class="footer__brand-name">AR Automation Labs</span><span class="footer__brand-sub">AI Automations That Work While You Don't</span></div>
             </div>
@@ -597,12 +614,12 @@
                 <a href="#automations">Projects</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact">Contact</a>
+                <a href="about.html">Full Bio</a>
             </nav>
             <div class="footer__socials">
                 <a href="https://www.linkedin.com/in/ar-automation-labs/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-                <a href="/cdn-cgi/l/email-protection#86e7efe7f3f2e9ebe7f2efe9e8e3fef6e3f4f2b1beb0c6e1ebe7efeaa8e5e9eb" aria-label="Email">✉</a>
-                <a href="https://www.youtube.com/@AutomateWithAli" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
-                <a href="https://x.com/AR_AiAutomation" target="_blank" rel="noopener" aria-label="X Twitter">𝕏</a>
+                <a href="https://mail.google.com/mail/?view=cm&to=aiautomationexpert786@gmail.com" target="_blank" rel="noopener" aria-label="Email">&#9993;</a>
+                <a href="https://wa.me/923236290238" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.52 3.76 1.42 5.33L2 22l4.96-1.58a9.8 9.8 0 005.08 1.4h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2zm0 17.96h-.01a8.2 8.2 0 01-4.17-1.14l-.3-.18-2.94.94.95-2.87-.2-.3a8.14 8.14 0 01-1.25-4.37c0-4.5 3.67-8.16 8.18-8.16 2.18 0 4.23.85 5.78 2.4a8.1 8.1 0 012.39 5.77c0 4.5-3.67 8.16-8.18 8.16zm4.49-6.11c-.25-.13-1.46-.72-1.68-.8-.23-.08-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.19-.54.06a6.7 6.7 0 01-1.97-1.21 7.4 7.4 0 01-1.36-1.7c-.14-.24-.02-.37.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a>
             </div>
         </div>
         <div class="footer__bottom">
@@ -611,106 +628,52 @@
         </div>
     </footer>
 
-    <!-- MODALS -->
-    <div class="modal-overlay" id="m-lead" role="dialog" aria-modal="true" aria-labelledby="ml-title">
-        <div class="modal">
-            <button class="modal__x" aria-label="Close modal">&times;</button>
-            <div class="modal__header"><span class="modal__badge">Lead Capture</span><h3 id="ml-title">Lead Capture &amp; Follow-up Automation</h3></div>
-            <div class="modal__img-big"><img src="screenshots/lead.png" alt="Lead Capture Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
-            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>Gmail API</span><span>Google Sheets</span><span>OpenAI</span><span>Tally Forms</span><span>Calendly</span><span>Supabase</span><span>Telegram</span></div></div>
-            <p class="modal__desc">Captures inbound leads, scores their urgency, responds intelligently with RAG, alerts you instantly on hot leads, and books calls automatically — all tracked in a real-time dashboard with smart follow-up logic.</p>
-            <div class="modal__steps">
-                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Lead Captured</strong><span>From forms, DMs, or landing pages</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>Intelligent Scoring</strong><span>AI classifies lead as HOT / WARM / COLD / BAD</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>Instant Response</strong><span>Personalized email sent within seconds</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Instant Alert</strong><span>Telegram/SMS sent only for hot leads</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>RAG Reply Handler</strong><span>Answers questions using your knowledge base</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Call Booking</strong><span>Calendly link pushed to interested leads</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Smart Follow-ups</strong><span>Stops automatically when lead replies or books</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Real-time Dashboard</strong><span>Google Sheets with live status tracking</span></div></div>
-            </div>
-            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="m-chat" role="dialog" aria-modal="true" aria-labelledby="mc-title">
-        <div class="modal">
-            <button class="modal__x" aria-label="Close modal">&times;</button>
-            <div class="modal__header"><span class="modal__badge">AI Chatbots</span><h3 id="mc-title">AI Chatbot Automation</h3></div>
-            <div class="modal__img-big"><img src="screenshots/chatbot.png" alt="AI Chatbot Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
-            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>Pinecone</span><span>Supabase</span><span>OpenAI</span><span>Claude</span></div></div>
-            <p class="modal__desc">Intelligent chatbots that answer questions using your own data. Built with RAG using Pinecone or Supabase, providing accurate answers 24/7.</p>
-            <div class="modal__steps">
-                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Knowledge Base</strong><span>Your docs indexed in vector DB</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>User Asks Question</strong><span>From website, WhatsApp, or app</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>RAG Processing</strong><span>AI retrieves &amp; generates answer</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Smart Response</strong><span>Accurate answer delivered instantly</span></div></div>
-            </div>
-            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="m-inbox" role="dialog" aria-modal="true" aria-labelledby="mi-title">
-        <div class="modal">
-            <button class="modal__x" aria-label="Close modal">&times;</button>
-            <div class="modal__header"><span class="modal__badge">Inbox Manager</span><h3 id="mi-title">AI Inbox Management Automation</h3></div>
-            <div class="modal__img-big"><img src="screenshots/inbox.png" alt="Inbox Manager Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
-            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>Gmail API</span><span>OpenAI</span><span>Google Calendar</span><span>Slack</span></div></div>
-            <p class="modal__desc">Categorizes emails, auto-labels by priority, drafts replies for important messages, and delivers a concise daily summary.</p>
-            <div class="modal__steps">
-                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Email Received</strong><span>New email arrives in your inbox</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>AI Categorizes</strong><span>Labeled by priority &amp; urgency</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>Drafts Replies</strong><span>AI drafts replies for important emails</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Daily Digest</strong><span>Summary of priorities delivered</span></div></div>
-            </div>
-            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="m-linkedin" role="dialog" aria-modal="true" aria-labelledby="mlin-title">
-        <div class="modal">
-            <button class="modal__x" aria-label="Close modal">&times;</button>
-            <div class="modal__header"><span class="modal__badge">LinkedIn Content</span><h3 id="mlin-title">LinkedIn Content Automation</h3></div>
-            <div class="modal__img-big"><img src="screenshots/linkedin.png" alt="LinkedIn Content Workflow" style="width:100%;border-radius:12px;object-fit:cover;"></div>
-            <div class="modal__tech"><span class="modal__tech-label">Tech Stack:</span><div class="modal__tech-tags"><span>n8n</span><span>OpenAI</span><span>DALL·E</span><span>LinkedIn API</span><span>Google Sheets</span></div></div>
-            <p class="modal__desc">Generates posts from your idea spreadsheet — researches topics, writes copy, creates images, and posts after your approval.</p>
-            <div class="modal__steps">
-                <div class="modal__step"><span class="modal__step-num">1</span><div><strong>Content Idea</strong><span>From your spreadsheet of ideas</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">2</span><div><strong>AI Research &amp; Write</strong><span>Topic researched &amp; post written</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">3</span><div><strong>Image Generated</strong><span>AI creates relevant visual</span></div></div>
-                <div class="modal__step"><span class="modal__step-num">4</span><div><strong>Your Approval</strong><span>Review &amp; approve before posting</span></div></div>
-            </div>
-            <a href="#contact" class="btn btn--solid btn--full modal__go">I Want This Automation</a>
-        </div>
-    </div>
-
-    <!-- CHATBOT -->
+    <!-- ARIA ASSISTANT -->
     <div class="chat-widget" id="chatWidget">
-        <button class="chat__btn" id="chatToggle" aria-label="Open AI assistant chat" aria-expanded="false">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <button class="chat__btn" id="chatToggle" aria-label="Open ARIA, the AI assistant" aria-expanded="false">
+            <span class="chat__btn-dot"></span>
+            <span class="chat__btn-txt">Ask ARIA</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <div class="chat__win" id="chatWin" hidden role="dialog" aria-label="Chat with Ali's AI assistant">
-            <div class="chat__head">
-                <div class="chat__head-info"><span class="chat__av">⚡</span><div><span class="chat__name">AR Automation Lab</span><span class="chat__st">● Online — AI Assistant</span></div></div>
-                <button class="chat__close" id="chatClose" aria-label="Close chat">&times;</button>
-            </div>
-            <div class="chat__msgs" id="chatMsgs">
-                <div class="cmsg cmsg--bot"><div class="cmsg__b">Hey! 👋 I'm Ali's AI assistant. Ask me anything about his automation services or get a quick quote!</div></div>
-                <div class="cqa">
-                    <button class="qa" data-m="What automations do you offer?">🤖 What do you offer?</button>
-                    <button class="qa" data-m="How much do automations cost?">💰 Pricing info</button>
-                    <button class="qa" data-m="I want to automate my lead capture">📋 Lead automation</button>
-                    <button class="qa" data-m="Book a call with Ali">📅 Book a call</button>
-                    <button class="qa" data-m="What tools do you use?">🛠️ Tools used</button>
-                    <button class="qa" data-m="How long does setup take?">⏱️ Setup time</button>
+    </div>
+    <div class="chat__backdrop" id="chatBackdrop" hidden></div>
+    <aside class="chat__win" id="chatWin" hidden role="dialog" aria-modal="true" aria-label="ARIA — AI assistant">
+        <div class="chat__head">
+            <div class="chat__head-info">
+                <span class="chat__av">A</span>
+                <div>
+                    <span class="chat__name">ARIA</span>
+                    <span class="chat__st">● Online — AR Automation Labs</span>
                 </div>
             </div>
-            <form class="chat__in" id="chatForm">
-                <input type="text" class="chat__field" id="chatIn" placeholder="Type your message..." autocomplete="off" aria-label="Chat message">
-                <button type="submit" class="chat__send" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M16 2L8 10M16 2l-4 14-3.5-6-6-3.5L16 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            </form>
+            <button class="chat__close" id="chatClose" aria-label="Close chat">&times;</button>
         </div>
-    </div>
+
+        <div class="chat__msgs" id="chatMsgs" aria-live="polite">
+            <div class="cmsg cmsg--bot"><div class="cmsg__b">Hi, I'm ARIA — Ali's AI assistant at AR Automation Labs. I can walk you through the automations we build, timelines and pricing.</div></div>
+            <div class="cmsg cmsg--bot" id="chatAskName"><div class="cmsg__b">Before we start — what should I call you?</div></div>
+        </div>
+
+        <div class="cqa" id="chatQA" hidden>
+            <button class="qa" data-m="What automations do you offer?">🤖 What do you offer?</button>
+            <button class="qa" data-m="How much do automations cost?">💰 Pricing info</button>
+            <button class="qa" data-m="I want to automate my lead capture">📋 Lead automation</button>
+            <button class="qa" data-m="Book a call with Ali">📅 Book a call</button>
+            <button class="qa" data-m="What tools do you use?">🛠️ Tools used</button>
+            <button class="qa" data-m="How long does setup take?">⏱️ Setup time</button>
+        </div>
+
+        <form class="chat__in" id="chatNameForm">
+            <input type="text" class="chat__field" id="chatNameIn" placeholder="Your first name..." autocomplete="given-name" maxlength="40" aria-label="Your first name">
+            <button type="submit" class="chat__send chat__send--wide" aria-label="Continue">Start</button>
+        </form>
+
+        <form class="chat__in" id="chatForm" hidden>
+            <input type="text" class="chat__field" id="chatIn" placeholder="Ask ARIA anything..." autocomplete="off" aria-label="Chat message">
+            <button type="submit" class="chat__send" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M16 2L8 10M16 2l-4 14-3.5-6-6-3.5L16 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </form>
+    </aside>
+
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js"></script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a05563463d6ae23b',t:'MTc4MDM5MjA4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>

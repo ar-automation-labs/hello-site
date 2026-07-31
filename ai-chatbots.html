@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot Automation (RAG) | Ali Raza — AR Automation Labs</title>
+    <meta name="description" content="Ali Raza builds custom AI chatbots using RAG with Pinecone/Supabase for SaaS and e-commerce businesses — trained on your own business data, for websites, WhatsApp, and apps.">
+    <meta name="author" content="Ali Raza">
+    <meta name="robots" content="index, follow, max-snippet:-1">
+    <link rel="canonical" href="https://ar-automation-labs.vercel.app/ai-chatbots.html">
+
+    <!-- Google Search Console verification: paste your code inside content="" below -->
+    <meta name="google-site-verification" content="PASTE_YOUR_GSC_CODE_HERE">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ar-automation-labs.vercel.app/ai-chatbots.html">
+    <meta property="og:title" content="AI Chatbot Automation — AR Automation Labs">
+    <meta property="og:description" content="RAG-powered AI chatbots trained on your own data, built by Ali Raza at AR Automation Labs.">
+    <meta property="og:site_name" content="AR Automation Lab">
+    <meta property="og:image" content="https://ar-automation-labs.vercel.app/uploads/profile_pic.png">
+    <meta property="og:image:alt" content="Ali Raza — AI Automation Specialist at AR Automation Lab">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Chatbot Automation — AR Automation Labs">
+    <meta name="twitter:description" content="RAG-powered AI chatbots trained on your own data, built by Ali Raza at AR Automation Labs.">
+    <meta name="twitter:image" content="https://ar-automation-labs.vercel.app/uploads/profile_pic.png">
+    <meta name="twitter:image:alt" content="Ali Raza — AI Automation Specialist at AR Automation Lab">
+
+    <meta name="theme-color" content="#07070A">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="uploads/profile_pic.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "AI Chatbot Automation",
+      "provider": { "@id": "https://ar-automation-labs.vercel.app#business" },
+      "areaServed": "Worldwide",
+      "description": "Retrieval-augmented generation chatbots that answer questions accurately using a business's own knowledge base, deployed via website, WhatsApp, or app. Commonly used by SaaS companies and e-commerce businesses."
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="mouse-glow" id="mouseGlow" aria-hidden="true"></div>
+
+    <header class="header" role="banner">
+        <div class="header__inner">
+            <a href="index.html#hero" class="brand" aria-label="AR Automation Labs - Home">
+                <span class="brand__mark" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" fill="none">
+                        <defs>
+                            <linearGradient id="arGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/>
+                            </linearGradient>
+                            <linearGradient id="arRing" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="rgba(0,191,255,.85)"/><stop offset="1" stop-color="rgba(0,85,255,.25)"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="url(#arRing)" stroke-width="1.4"/>
+                        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGrad)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
+                    </svg>
+                </span>
+                <span class="brand__txt">
+                    <span class="brand__name">AR</span>
+                    <span class="brand__sub">Automation Labs</span>
+                </span>
+            </a>
+            <nav class="header__nav" role="navigation" aria-label="Main">
+                <a href="index.html#hero" class="header__nav-link">Home</a>
+                <a href="index.html#about" class="header__nav-link">About</a>
+                <a href="index.html#automations" class="header__nav-link">Projects</a>
+                <a href="index.html#faq" class="header__nav-link">FAQ</a>
+                <a href="index.html#contact" class="header__cta">Book a Call</a>
+            </nav>
+            <button class="header__menu-btn" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation menu" aria-hidden="true">
+        <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="mobile-menu__inner">
+            <a href="index.html#hero" class="mobile-menu__link">Home</a>
+            <a href="index.html#about" class="mobile-menu__link">About</a>
+            <a href="index.html#automations" class="mobile-menu__link">Projects</a>
+            <a href="index.html#faq" class="mobile-menu__link">FAQ</a>
+            <a href="index.html#contact" class="mobile-menu__cta">Book a Call</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="section section--compact" data-animate>
+            <div class="automations__inner" style="max-width:780px">
+
+                <div class="automations__head" style="margin-bottom:36px">
+                    <span class="label">Project</span>
+                    <h1 style="font-family:var(--fh);font-size:clamp(1.8rem,4vw,2.7rem);font-weight:600;line-height:1.15;margin-bottom:12px">AI Chatbot Automation for Business Support</h1>
+                    <p class="automations__head-sub">Smart bots that answer from your own data, built by Ali Raza at AR Automation Labs.</p>
+                </div>
+
+                <div class="modal__img-big" style="margin-bottom:24px">
+                    <img src="screenshots/chatbot.png" alt="AI Chatbot Workflow screenshot" style="width:100%;border-radius:12px;object-fit:cover;display:block">
+                </div>
+
+                <div class="modal__tech" style="margin-bottom:22px">
+                    <span class="modal__tech-label">Built with:</span>
+                    <div class="modal__tech-tags"><span>n8n</span><span>Pinecone</span><span>Supabase</span><span>OpenAI</span><span>Claude</span></div>
+                </div>
+
+                <p style="color:var(--t2);line-height:1.75;margin-bottom:28px;font-size:.98rem">A chatbot is only useful if it gives correct answers. This one is built with RAG (retrieval-augmented generation) — your documents, FAQs, and policies are indexed into a knowledge base first, so every answer comes from your real information instead of a generic guess. It can sit on your website, run inside WhatsApp, or plug into an existing app, and it responds around the clock.</p>
+
+                <div style="margin-bottom:32px">
+                    <span class="label" style="margin-bottom:14px">What you get</span>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 20px">
+                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Answers accurately — pulled from your real documents, not made up</span></div>
+                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Works 24/7 — no waiting for business hours</span></div>
+                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Deploys anywhere — website, WhatsApp, or your own app</span></div>
+                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Cuts repetitive questions — your team only steps in when it's actually needed</span></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:8px">
+                    <span class="label" style="margin-bottom:14px">Who it's for</span>
+                    <p style="color:var(--t2);line-height:1.7;font-size:.95rem">A strong fit for <strong>SaaS companies</strong> fielding the same setup and billing questions on repeat, and <strong>e-commerce businesses</strong> handling order status, shipping, and return questions around the clock. Really, any business getting the same customer questions over and over will get instant, accurate answers without hiring more support staff.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section section--compact" data-animate style="padding-top:0">
+            <div class="automations__inner" style="max-width:780px">
+                <div class="cards-grid">
+<a class="card" href="lead-capture.html">
+                        <div class="card__body">
+                            <h3>Lead Capture & Follow-up</h3>
+                            <p>Auto-capture, score, and follow up with every lead.</p>
+                            <span class="card__cta">View project <span class="card__cta-arrow">→</span></span>
+                        </div>
+                    </a>
+                    <a class="card" href="inbox-manager.html">
+                        <div class="card__body">
+                            <h3>Inbox Manager</h3>
+                            <p>Labels, drafts replies, and sends a daily digest.</p>
+                            <span class="card__cta">View project <span class="card__cta-arrow">→</span></span>
+                        </div>
+                    </a>
+                    <a class="card" href="linkedin-content.html">
+                        <div class="card__body">
+                            <h3>LinkedIn Content Automation</h3>
+                            <p>Research, write, and post — all AI-assisted.</p>
+                            <span class="card__cta">View project <span class="card__cta-arrow">→</span></span>
+                        </div>
+                    </a>
+                </div>
+                <div style="text-align:center;margin-top:36px">
+                    <a href="index.html#contact" class="btn btn--solid">Book a Call With Ali Raza →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                    <defs><linearGradient id="arGradF" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/></linearGradient></defs>
+                    <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="rgba(0,191,255,.4)" stroke-width="1.4"/>
+                    <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGradF)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
+                </svg>
+                <div><span class="footer__brand-name">AR Automation Labs</span><span class="footer__brand-sub">AI Automations That Work While You Don't</span></div>
+            </div>
+            <nav class="footer__nav" aria-label="Footer navigation">
+                <a href="index.html#hero">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#automations">Projects</a>
+                <a href="index.html#faq">FAQ</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="about.html">Full Bio</a>
+            </nav>
+            <div class="footer__socials">
+                <a href="https://www.linkedin.com/in/ar-automation-labs/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+                <a href="https://mail.google.com/mail/?view=cm&to=aiautomationexpert786@gmail.com" target="_blank" rel="noopener" aria-label="Email">&#9993;</a>
+                <a href="https://wa.me/923236290238" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.94.52 3.76 1.42 5.33L2 22l4.96-1.58a9.8 9.8 0 005.08 1.4h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2zm0 17.96h-.01a8.2 8.2 0 01-4.17-1.14l-.3-.18-2.94.94.95-2.87-.2-.3a8.14 8.14 0 01-1.25-4.37c0-4.5 3.67-8.16 8.18-8.16 2.18 0 4.23.85 5.78 2.4a8.1 8.1 0 012.39 5.77c0 4.5-3.67 8.16-8.18 8.16zm4.49-6.11c-.25-.13-1.46-.72-1.68-.8-.23-.08-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.19-.54.06a6.7 6.7 0 01-1.97-1.21 7.4 7.4 0 01-1.36-1.7c-.14-.24-.02-.37.11-.5.11-.11.25-.29.37-.44.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.44-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.51c.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.46-.6 1.66-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>© 2025 AR Automation Labs. All rights reserved.</span>
+            <span>Built with passion &amp; AI automation.</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

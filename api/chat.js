@@ -1,73 +1,51 @@
-/* ============================================
-   VERCEL API ROUTE — Chatbot Proxy
-   Keeps your n8n webhook URL hidden from browser
-
-   ENV VARIABLES TO SET IN VERCEL DASHBOARD:
-   N8N_CHAT_WEBHOOK_URL  = your actual n8n chatbot webhook URL
-   N8N_HEADER_AUTH_VALUE = your secret header value from n8n
-   ============================================ */
-
+// api/chat.js — proxies the site chat to the n8n webhook (URL stays private)
 export default async function handler(req, res) {
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  /* Only allow POST */
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-
-  let body = req.body;
-
-  /* Parse manually if body is a string (shouldn't happen on Vercel but safe) */
-  if (typeof body === 'string') {
-    try { body = JSON.parse(body); }
-    catch { return res.status(400).json({ error: 'Invalid JSON' }); }
-  }
-
-  const { message, sessionId } = body || {};
-
-  if (!message || typeof message !== 'string' || message.trim().length === 0) {
-    return res.status(400).json({ error: 'Missing message' });
-  }
-
-  const safeMessage = message.trim().slice(0, 500);
-
-  const WEBHOOK_URL = process.env.N8N_CHAT_WEBHOOK_URL;
-  const AUTH_VALUE  = process.env.N8N_HEADER_AUTH_VALUE;
-
-  if (!WEBHOOK_URL) {
-    console.log('DEV MODE: No chat webhook URL set. Message:', safeMessage);
-    return res.status(200).json({
-      ok: true,
-      reply: 'Chat webhook not connected yet. Check back soon!'
-    });
-  }
+  const WEBHOOK = process.env.N8N_CHAT_WEBHOOK_URL || process.env.CHAT_WEBHOOK_URL;
+  if (!WEBHOOK) return res.status(500).json({ error: 'Webhook not configured' });
 
   try {
-    const response = await fetch(WEBHOOK_URL, {
+    const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+    const message = (body.message || '').toString().trim();
+    if (!message) return res.status(400).json({ error: 'Message is required' });
+
+    const payload = {
+      name: (body.name || 'Guest').toString().slice(0, 60),
+      message: message.slice(0, 2000),
+      sessionId: (body.sessionId || '').toString().slice(0, 100),
+      timestamp: body.timestamp || new Date().toISOString(),
+      source: body.source || 'Website — ARIA Assistant',
+    };
+
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 25000);
+
+    const upstream = await fetch(WEBHOOK, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': AUTH_VALUE || ''
-      },
-      body: JSON.stringify({
-        message: safeMessage,
-        sessionId: sessionId || 'anonymous',
-        timestamp: new Date().toISOString(),
-        source: 'Website Chatbot'
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
     });
+    clearTimeout(timer);
 
-    if (!response.ok) throw new Error('n8n returned ' + response.status);
+    const raw = await upstream.text();
+    if (!upstream.ok) return res.status(502).json({ error: 'Assistant unavailable' });
 
-    const data = await response.json();
-    const reply = data.reply || data.output || data.text || data.message || 'Got it! Ali will follow up shortly.';
+    let reply = '';
+    try {
+      const data = JSON.parse(raw);
+      const first = Array.isArray(data) ? data[0] : data;
+      reply = first?.reply || first?.output || first?.text || first?.message || '';
+      if (typeof reply !== 'string') reply = JSON.stringify(reply);
+    } catch {
+      reply = raw;
+    }
 
-    return res.status(200).json({ ok: true, reply });
-
-  } catch (err) {
-    console.error('Chat webhook error:', err.message);
-    return res.status(500).json({
-      ok: false,
-      reply: 'Something went wrong. Reach Ali directly at aiautomationexpert786@gmail.com'
-    });
+    if (!reply || !reply.trim()) return res.status(502).json({ error: 'Empty reply' });
+    return res.status(200).json({ reply: reply.trim() });
+  } catch (e) {
+    return res.status(502).json({ error: 'Assistant unavailable' });
   }
 }
