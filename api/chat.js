@@ -1,9 +1,10 @@
-// api/chat.js — proxies the site chat to the n8n webhook (URL stays private)
+// api/chat.js — proxies the site chat to the n8n webhook (URL + key stay private)
 export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const WEBHOOK = process.env.N8N_CHAT_WEBHOOK_URL || process.env.CHAT_WEBHOOK_URL;
+  const AUTH_VALUE = process.env.N8N_HEADER_AUTH_VALUE;
   if (!WEBHOOK) return res.status(500).json({ error: 'Webhook not configured' });
 
   try {
@@ -22,9 +23,12 @@ export default async function handler(req, res) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 25000);
 
+    const headers = { 'Content-Type': 'application/json' };
+    if (AUTH_VALUE) headers['x-api-key'] = AUTH_VALUE;
+
     const upstream = await fetch(WEBHOOK, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify(payload),
       signal: controller.signal,
     });
