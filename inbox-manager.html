@@ -3,28 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Inbox Management Automation | Ali Raza — AR Automation Labs</title>
-    <meta name="description" content="Ali Raza automates inbox management with AI for consultants and marketing agencies — auto-labels emails by priority, drafts replies, and delivers a daily summary. Built by AR Automation Labs.">
+    <title>Executive Inbox Triage &amp; Email Assistant | AR Automation Labs</title>
+    <meta name="description" content="Autonomous executive inbox management and email triage by Ali Raza (AR Automation Labs). Safe draft-only replies in Gmail, label prioritization, and daily briefing via n8n.">
+    <meta name="keywords" content="inbox management automation, email automation, executive email triage, n8n Gmail workflow, AI draft replies, inbox zero automation, Ali Raza, AR Automation Labs">
     <meta name="author" content="Ali Raza">
     <meta name="robots" content="index, follow, max-snippet:-1">
     <link rel="canonical" href="https://ar-automation-labs.vercel.app/inbox-manager.html">
 
-    <!-- Google Search Console verification: paste your code inside content="" below -->
-    <meta name="google-site-verification" content="PASTE_YOUR_GSC_CODE_HERE">
-
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:url" content="https://ar-automation-labs.vercel.app/inbox-manager.html">
-    <meta property="og:title" content="AI Inbox Management Automation — AR Automation Labs">
-    <meta property="og:description" content="AI inbox automation that labels, drafts, and summarizes your email — built by Ali Raza.">
-    <meta property="og:site_name" content="AR Automation Lab">
+    <meta property="og:title" content="Executive Inbox Triage &amp; Email Assistant — AR Automation Labs">
+    <meta property="og:description" content="How we built an autonomous triage system that drafts contextual replies in Gmail safely and saves founders 2+ hours daily.">
+    <meta property="og:site_name" content="AR Automation Labs">
     <meta property="og:image" content="https://ar-automation-labs.vercel.app/uploads/profile_pic.png">
-    <meta property="og:image:alt" content="Ali Raza — AI Automation Specialist at AR Automation Lab">
+    <meta property="og:image:alt" content="Ali Raza — AI Automation Specialist at AR Automation Labs">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Inbox Management Automation — AR Automation Labs">
-    <meta name="twitter:description" content="AI inbox automation that labels, drafts, and summarizes your email — built by Ali Raza.">
+    <meta name="twitter:title" content="Executive Inbox Triage &amp; Email Assistant — AR Automation Labs">
+    <meta name="twitter:description" content="Zero missed client proposals. Autonomous Gmail triage with 100% draft-only safety architecture.">
     <meta name="twitter:image" content="https://ar-automation-labs.vercel.app/uploads/profile_pic.png">
-    <meta name="twitter:image:alt" content="Ali Raza — AI Automation Specialist at AR Automation Lab">
 
     <meta name="theme-color" content="#07070A">
 
@@ -32,18 +29,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=2">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="uploads/apple-touch-icon.png?v=2">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "serviceType": "AI Inbox Management Automation",
-      "provider": { "@id": "https://ar-automation-labs.vercel.app#business" },
-      "areaServed": "Worldwide",
-      "description": "Categorizes incoming email by priority, drafts replies for important messages, and delivers a daily digest summary. Commonly used by consultants and marketing agencies."
+      "name": "Executive Inbox Triage & Email Automation",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "AR Automation Labs",
+        "url": "https://ar-automation-labs.vercel.app"
+      },
+      "serviceType": "Inbox Management and Email Automation",
+      "areaServed": ["United States", "Global"],
+      "description": "Autonomous inbox triage system that labels incoming emails, drafts context-aware responses in Gmail Drafts (draft-only safety mode), and delivers a daily priority briefing."
     }
     </script>
 
@@ -57,7 +60,11 @@
     <header class="header" role="banner">
         <div class="header__inner">
             <a href="index.html#hero" class="brand" aria-label="AR Automation Labs - Home">
-                <img src="uploads/ar-mark.png" alt="AR Automation Labs" class="brand__logo-img">
+                <img src="uploads/ar-mark.png" alt="AR" class="brand__logo-img">
+                <span class="brand__txt">
+                    <span class="brand__name">AR</span>
+                    <span class="brand__sub">Automation Labs</span>
+                </span>
             </a>
             <nav class="header__nav" role="navigation" aria-label="Main">
                 <a href="index.html#hero" class="header__nav-link">Home</a>
@@ -87,70 +94,110 @@
 
     <main>
         <section class="section section--compact" data-animate>
-            <div class="automations__inner" style="max-width:780px">
+            <div class="automations__inner" style="max-width:820px">
 
-                <div class="automations__head" style="margin-bottom:36px">
-                    <span class="label">Project</span>
-                    <h1 style="font-family:var(--fh);font-size:clamp(1.8rem,4vw,2.7rem);font-weight:600;line-height:1.15;margin-bottom:12px">AI Inbox Management Automation</h1>
-                    <p class="automations__head-sub">An AI system that reads, sorts, and drafts your email, built by Ali Raza at AR Automation Labs.</p>
+                <div class="automations__head" style="margin-bottom:32px;text-align:left">
+                    <span class="label">Client Solution Blueprint</span>
+                    <h1 style="font-family:var(--fh);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:600;line-height:1.15;margin-bottom:12px">Executive Inbox Triage &amp; <span class="cyan">Email Assistant</span></h1>
+                    <p class="automations__head-sub" style="font-size:1.02rem;color:var(--t2);line-height:1.6">Reclaim 2 hours every morning. Autonomous email triage that organizes your inbox, drafts contextual replies in Gmail, and delivers a 30-second priority briefing.</p>
                 </div>
 
-                <div class="modal__img-big" style="margin-bottom:24px">
-                    <img src="screenshots/inbox.png" alt="Inbox Manager Workflow screenshot" style="width:100%;border-radius:12px;object-fit:cover;display:block">
+                <div class="modal__img-big" style="margin-bottom:24px;border:1px solid var(--brd);border-radius:12px;overflow:hidden">
+                    <img src="screenshots/inbox.png" alt="Inbox Triage Workflow Architecture" style="width:100%;object-fit:cover;display:block">
                 </div>
 
-                <div class="modal__tech" style="margin-bottom:22px">
-                    <span class="modal__tech-label">Built with:</span>
-                    <div class="modal__tech-tags"><span>n8n</span><span>Gmail API</span><span>OpenAI</span><span>Google Calendar</span><span>Slack</span></div>
+                <div class="modal__tech" style="margin-bottom:28px">
+                    <span class="modal__tech-label">Production Stack:</span>
+                    <div class="modal__tech-tags"><span>Gmail API</span><span>n8n Core</span><span>Claude 3.5 Sonnet</span><span>Draft-Only Mode</span><span>Telegram Digest</span><span>OAuth 2.0 Security</span></div>
                 </div>
 
-                <p style="color:var(--t2);line-height:1.75;margin-bottom:28px;font-size:.98rem">Inbox chaos is one of the most common time-wasters for business owners. This system reads every incoming email the moment it lands, labels it by priority, and drafts a reply for anything important — you just review and hit send. At the end of the day, you get one clean summary instead of scrolling through a cluttered inbox.</p>
+                <!-- Painful Problem Section -->
+                <div style="background:rgba(255,107,107,0.03);border:1px solid rgba(255,107,107,0.18);border-radius:12px;padding:26px 24px;margin-bottom:28px">
+                    <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#FF8B8B;display:block;margin-bottom:8px">The Expensive Bottleneck</span>
+                    <h2 style="font-family:var(--fh);font-size:1.25rem;font-weight:600;color:var(--t1);margin-bottom:12px">Drowning Under 100+ Daily Unread Emails</h2>
+                    <p style="color:var(--t2);line-height:1.75;font-size:.95rem;margin-bottom:12px">Business executives spend the first 90 minutes of their morning wading through routine status inquiries, vendor pitches, receipts, and newsletters. In the chaos, high-priority client requests and urgent contract revisions sit buried until it's too late.</p>
+                    <p style="color:var(--t2);line-height:1.75;font-size:.95rem">Handing over your inbox to a human VA is expensive and raises confidentiality risks. Fully automated email bots that send replies directly can cause catastrophic mistakes. What's needed is a <strong>safe, draft-only copilot</strong>.</p>
+                </div>
 
-                <div style="margin-bottom:32px">
-                    <span class="label" style="margin-bottom:14px">What you get</span>
-                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 20px">
-                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Saves hours a week — no more manually sorting through email</span></div>
-                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Nothing important gets missed — priority emails are flagged automatically</span></div>
-                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">Replies stay in your voice — AI drafts, you approve before anything sends</span></div>
-                        <div style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--accent);font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2);font-size:.9rem;line-height:1.5">One daily summary — see what mattered without opening every message</span></div>
+                <!-- Practical Solution Delivered -->
+                <div style="background:var(--card);border:1px solid var(--brd);border-radius:12px;padding:26px 24px;margin-bottom:28px">
+                    <span style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);display:block;margin-bottom:8px">The Solution Delivered</span>
+                    <h2 style="font-family:var(--fh);font-size:1.25rem;font-weight:600;color:var(--t1);margin-bottom:14px">Smart Triage with 100% Draft-Only Safety Guardrails</h2>
+                    <div style="display:flex;flex-direction:column;gap:14px">
+                        <div style="display:flex;gap:12px;align-items:flex-start">
+                            <span style="background:var(--accent-d);color:var(--accent);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0">1</span>
+                            <div><strong style="color:var(--t1);font-size:.94rem">Multi-Label Triage:</strong> Inbound threads are evaluated and automatically labeled by priority: <code>🔥 Urgent Client</code>, <code>💬 Routine Inquiry</code>, <code>📰 Newsletter</code>, or <code>🛑 Cold Pitch</code>.</div>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:flex-start">
+                            <span style="background:var(--accent-d);color:var(--accent);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0">2</span>
+                            <div><strong style="color:var(--t1);font-size:.94rem">Contextual Draft Generation:</strong> For actionable emails, Claude analyzes the full thread history and crafts a tailored, professional response saved directly to your <strong>Gmail Drafts</strong> folder.</div>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:flex-start">
+                            <span style="background:var(--accent-d);color:var(--accent);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0">3</span>
+                            <div><strong style="color:var(--t1);font-size:.94rem">Zero Unsolicited Sends:</strong> The system NEVER sends an email on its own. You simply open Drafts, review in 5 seconds, tweak if needed, and hit send.</div>
+                        </div>
+                        <div style="display:flex;gap:12px;align-items:flex-start">
+                            <span style="background:var(--accent-d);color:var(--accent);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0">4</span>
+                            <div><strong style="color:var(--t1);font-size:.94rem">Morning Executive Digest:</strong> At 8:00 AM, a bulleted digest is sent to your phone summarizing the top 3 items requiring your personal decision today.</div>
+                        </div>
                     </div>
                 </div>
 
-                <div style="margin-bottom:8px">
-                    <span class="label" style="margin-bottom:14px">Who it's for</span>
-                    <p style="color:var(--t2);line-height:1.7;font-size:.95rem">Especially useful for <strong>consultants</strong> and <strong>marketing agencies</strong> juggling several client threads at once, where one missed email can mean a missed deadline. Also a natural fit for busy founders and small business owners who want their inbox handled without hiring a full-time assistant.</p>
+                <!-- Measurable Results -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:34px">
+                    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:18px;text-align:center">
+                        <span style="font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--accent);display:block">0</span>
+                        <span style="font-size:0.75rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.08em">Buried Client Proposals</span>
+                    </div>
+                    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:18px;text-align:center">
+                        <span style="font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--accent);display:block">85%</span>
+                        <span style="font-size:0.75rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.08em">Faster Reply Cycles</span>
+                    </div>
+                    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:18px;text-align:center">
+                        <span style="font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--accent);display:block">100%</span>
+                        <span style="font-size:0.75rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.08em">Draft-Only Safety</span>
+                    </div>
+                    <div style="background:var(--bg2);border:1px solid var(--brd);border-radius:10px;padding:18px;text-align:center">
+                        <span style="font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--accent);display:block">2 hrs</span>
+                        <span style="font-size:0.75rem;color:var(--t3);text-transform:uppercase;letter-spacing:0.08em">Saved Every Morning</span>
+                    </div>
+                </div>
+
+                <div style="text-align:center;padding:24px 0 16px">
+                    <h3 style="font-family:var(--fh);font-size:1.25rem;font-weight:600;margin-bottom:12px">Want an autonomous email assistant for your inbox?</h3>
+                    <p style="color:var(--t2);font-size:.95rem;margin-bottom:20px;max-width:540px;margin-left:auto;margin-right:auto">We set up secure, encrypted triage pipelines on your own Google Workspace or Outlook account.</p>
+                    <a href="index.html#contact" class="btn btn--solid">Let's Connect With Ali Raza →</a>
                 </div>
 
             </div>
         </section>
 
+        <!-- Other Projects Navigation -->
         <section class="section section--compact" data-animate style="padding-top:0">
-            <div class="automations__inner" style="max-width:780px">
+            <div class="automations__inner" style="max-width:820px">
+                <span class="label" style="margin-bottom:16px">Explore More Client Solutions</span>
                 <div class="cards-grid">
-<a class="card" href="ai-chatbots.html">
-                        <div class="card__body">
-                            <h3>AI Chatbot Automation</h3>
-                            <p>RAG-powered chatbots that answer from your own data.</p>
-                            <span class="card__cta">View project <span class="card__cta-arrow">→</span></span>
-                        </div>
-                    </a>
                     <a class="card" href="lead-capture.html">
                         <div class="card__body">
-                            <h3>Lead Capture & Follow-up</h3>
-                            <p>Auto-capture, score, and follow up with every lead.</p>
-                            <span class="card__cta">View project <span class="card__cta-arrow">→</span></span>
+                            <h3>Speed-to-Lead Qualification Engine</h3>
+                            <p>Capture, qualify, and auto-book inbound inquiries in &lt;60 seconds.</p>
+                            <span class="card__cta">View Blueprint <span class="card__cta-arrow">→</span></span>
+                        </div>
+                    </a>
+                    <a class="card" href="ai-chatbots.html">
+                        <div class="card__body">
+                            <h3>24/7 AI Knowledge &amp; Support Agent</h3>
+                            <p>Grounded in your business documents to resolve questions and escalate hot deals.</p>
+                            <span class="card__cta">View Blueprint <span class="card__cta-arrow">→</span></span>
                         </div>
                     </a>
                     <a class="card" href="linkedin-content.html">
                         <div class="card__body">
-                            <h3>LinkedIn Content Automation</h3>
-                            <p>Research, write, and post — all AI-assisted.</p>
-                            <span class="card__cta">View project <span class="card__cta-arrow">→</span></span>
+                            <h3>B2B Thought Leadership &amp; Content Engine</h3>
+                            <p>Authentic research-backed LinkedIn posts on autopilot—zero AI fluff.</p>
+                            <span class="card__cta">View Blueprint <span class="card__cta-arrow">→</span></span>
                         </div>
                     </a>
-                </div>
-                <div style="text-align:center;margin-top:36px">
-                    <a href="index.html#contact" class="btn btn--solid">Let's Connect With Ali Raza →</a>
                 </div>
             </div>
         </section>
@@ -168,7 +215,6 @@
                 <a href="index.html#automations">Projects</a>
                 <a href="index.html#faq">FAQ</a>
                 <a href="index.html#contact">Contact</a>
-                <a href="about.html">Full Bio</a>
             </nav>
             <div class="footer__socials">
                 <a href="https://www.linkedin.com/in/ar-automation-labs/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
@@ -177,7 +223,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <span>© 2025 AR Automation Labs. All rights reserved.</span>
+            <span>© 2026 AR Automation Labs. All rights reserved.</span>
             <span>Built with passion &amp; AI automation.</span>
         </div>
     </footer>
