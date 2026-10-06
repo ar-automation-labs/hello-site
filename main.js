@@ -122,20 +122,15 @@
     var close=document.getElementById('chatClose');
     var form=document.getElementById('chatForm');
     var inp=document.getElementById('chatIn');
-    var nameForm=document.getElementById('chatNameForm');
-    var nameIn=document.getElementById('chatNameIn');
-    var askName=document.getElementById('chatAskName');
     var qa=document.getElementById('chatQA');
     var msgs=document.getElementById('chatMsgs');
     if(!toggle||!win)return;
 
     var EMAIL='aiautomationexpert786@gmail.com';
-    var userName=safeGet('aria_name')||'';
+    var userName=safeGet('aria_name')||'Guest';
     var sessionId=safeGet('aria_sid');
     if(!sessionId){sessionId=makeId();safeSet('aria_sid',sessionId)}
     var busy=false;
-
-    if(userName)unlockChat(false);
 
     function safeGet(k){try{return window.sessionStorage.getItem(k)}catch(e){return null}}
     function safeSet(k,v){try{window.sessionStorage.setItem(k,v)}catch(e){}}
@@ -150,8 +145,7 @@
       toggle.setAttribute('aria-expanded','true');
       document.body.style.overflow='hidden';
       setTimeout(function(){
-        var f=(!userName&&nameIn)?nameIn:inp;
-        if(f)f.focus();
+        if(inp)inp.focus();
       },320);
     }
     function closeChat(){
@@ -165,29 +159,6 @@
     if(close)close.addEventListener('click',closeChat);
     if(backdrop)backdrop.addEventListener('click',closeChat);
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!win.hidden)closeChat()});
-
-    function unlockChat(greet){
-      if(nameForm)nameForm.hidden=true;
-      if(form)form.hidden=false;
-      if(qa)qa.hidden=false;
-      if(askName)askName.remove();
-      if(greet){
-        addBot("Great to meet you, "+userName+" 👋\nAsk me anything, or pick one of the quick topics below.");
-        if(inp)setTimeout(function(){inp.focus()},120);
-      }
-    }
-
-    if(nameForm){
-      nameForm.addEventListener('submit',function(e){
-        e.preventDefault();
-        var v=nameIn?nameIn.value.trim():'';
-        if(!v){if(nameIn)nameIn.focus();return}
-        userName=v.replace(/\s+/g,' ').slice(0,40);
-        safeSet('aria_name',userName);
-        addUser(userName);
-        unlockChat(true);
-      });
-    }
 
     document.querySelectorAll('.qa').forEach(function(b){
       b.addEventListener('click',function(){var m=b.dataset.m;if(m)sendMsg(m)});
@@ -225,7 +196,7 @@
 
     function sendMsg(text){
       if(!msgs||busy)return;
-      if(!userName){if(nameIn)nameIn.focus();return}
+      if(qa)qa.style.display='none';
       busy=true;
       if(form)form.classList.add('sending');
       addUser(text);
@@ -242,7 +213,7 @@
         headers:{'Content-Type':'application/json'},
         signal:ctrl?ctrl.signal:undefined,
         body:JSON.stringify({
-          name:userName,
+          name:userName||'Guest',
           message:text,
           sessionId:sessionId,
           timestamp:new Date().toISOString(),
@@ -254,11 +225,11 @@
         clearTimeout(timer);ty.remove();
         var reply=(data&&(data.reply||data.output||data.text))||'';
         if(reply)addBot(String(reply));
-        else addBot("I didn't quite catch that, "+userName+". Could you rephrase it?");
+        else addBot("I didn't quite catch that. Could you rephrase your question?");
       })
       .catch(function(){
         clearTimeout(timer);ty.remove();
-        addBot("Sorry "+userName+", my connection to the assistant is briefly unavailable. Ali replies personally within 24 hours — you can reach him directly below, or use the contact form on this page.",mailBtn());
+        addBot("Sorry, my connection to the assistant is briefly unavailable. Ali replies personally within 24 hours — you can reach him directly below, or use the contact form on this page.",mailBtn());
       })
       .then(function(){
         busy=false;

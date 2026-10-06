@@ -33,8 +33,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="uploads/profile_pic.png">
+    <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png">
 
     <script type="application/ld+json">
     {
@@ -166,31 +167,14 @@
     <header class="header" role="banner">
         <div class="header__inner">
             <a href="#hero" class="brand" aria-label="AR Automation Labs - Home">
-                <span class="brand__mark" aria-hidden="true">
-                    <svg viewBox="0 0 48 48" fill="none">
-                        <defs>
-                            <linearGradient id="arGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/>
-                            </linearGradient>
-                            <linearGradient id="arRing" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="rgba(0,191,255,.85)"/><stop offset="1" stop-color="rgba(0,85,255,.25)"/>
-                            </linearGradient>
-                        </defs>
-                        <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="url(#arRing)" stroke-width="1.4"/>
-                        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGrad)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
-                    </svg>
-                </span>
-                <span class="brand__txt">
-                    <span class="brand__name">AR</span>
-                    <span class="brand__sub">Automation Labs</span>
-                </span>
+                <img src="uploads/ar-mark.png" alt="AR Automation Labs" class="brand__logo-img">
             </a>
             <nav class="header__nav" role="navigation" aria-label="Main">
                 <a href="#hero" class="header__nav-link">Home</a>
                 <a href="#about" class="header__nav-link">About</a>
                 <a href="#automations" class="header__nav-link">Projects</a>
                 <a href="#faq" class="header__nav-link">FAQ</a>
-                <a href="#contact" class="header__cta">Book a Call</a>
+                <a href="#contact" class="header__cta">Let's Connect</a>
             </nav>
             <button class="header__menu-btn" aria-label="Menu" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -208,7 +192,7 @@
             <a href="#about" class="mobile-menu__link">About</a>
             <a href="#automations" class="mobile-menu__link">Projects</a>
             <a href="#faq" class="mobile-menu__link">FAQ</a>
-            <a href="#contact" class="mobile-menu__cta">Book a Call</a>
+            <a href="#contact" class="mobile-menu__cta">Let's Connect</a>
         </div>
     </div>
 
@@ -257,7 +241,7 @@
                 <p class="hero__sub">I build custom AI automations for businesses that want to scale without the manual grind.</p>
                 <div class="hero__btns">
                     <a href="#automations" class="btn btn--ghost">See My Work</a>
-                    <a href="#contact" class="btn btn--solid">Book a Call</a>
+                    <a href="#contact" class="btn btn--solid">Let's Connect</a>
                 </div>
                 <div class="hero__scroll" aria-hidden="true">
                     <svg width="16" height="24" viewBox="0 0 16 24" fill="none"><rect x="1" y="1" width="14" height="22" rx="7" stroke="currentColor" stroke-width="1.2" opacity=".3"/><circle cx="8" cy="7" r="2" fill="currentColor" opacity=".5"><animate attributeName="cy" values="7;14;7" dur="2s" repeatCount="indefinite"/></circle></svg>
@@ -333,24 +317,34 @@
                 </div>
                 <div class="problem__grid">
                     <div class="problem-card reveal-right" data-delay="0">
-                        <div class="problem-card__icon">⏳</div>
-                        <h3>Wasting Hours</h3>
-                        <p>Spending 3+ hours daily on manual follow-ups, data entry, and repetitive tasks.</p>
+                        <div class="problem-card__icon">🔁</div>
+                        <h3>Chasing Follow-ups by Hand</h3>
+                        <p>You meant to reply promptly, but your day slipped away. By the time you reach out, the prospect has already moved on.</p>
                     </div>
-                    <div class="problem-card reveal-right" data-delay="0.08">
-                        <div class="problem-card__icon">📉</div>
-                        <h3>Losing Leads</h3>
-                        <p>Leads slipping through cracks because you can't respond fast enough to every inquiry.</p>
+                    <div class="problem-card reveal-right" data-delay="0.06">
+                        <div class="problem-card__icon">📞</div>
+                        <h3>Calls with Unqualified Leads</h3>
+                        <p>Spending 30-minute discovery calls with tire-kickers who will never buy, while high-value prospects wait for an answer.</p>
                     </div>
-                    <div class="problem-card reveal-right" data-delay="0.16">
-                        <div class="problem-card__icon">📧</div>
-                        <h3>Inbox Chaos</h3>
-                        <p>Drowning in emails, important messages buried, no time to focus on high-value work.</p>
+                    <div class="problem-card reveal-right" data-delay="0.12">
+                        <div class="problem-card__icon">💬</div>
+                        <h3>Answering the Same Questions Daily</h3>
+                        <p>Typing out your pricing, services, and availability over and over again instead of letting an intelligent system handle the first touch.</p>
+                    </div>
+                    <div class="problem-card reveal-right" data-delay="0.18">
+                        <div class="problem-card__icon">🌙</div>
+                        <h3>Leads Slipping Away After Hours</h3>
+                        <p>Inquiries arriving at 8 PM or on weekends sit idle until Monday morning—by which time their intent has cooled.</p>
                     </div>
                     <div class="problem-card reveal-right" data-delay="0.24">
-                        <div class="problem-card__icon">🔇</div>
-                        <h3>Inconsistent Content</h3>
-                        <p>Knowing you should post on LinkedIn but never finding the time to create quality content.</p>
+                        <div class="problem-card__icon">📥</div>
+                        <h3>Drowning in Inbox &amp; Chat Chaos</h3>
+                        <p>Wading through hundreds of low-priority messages while critical client requests get buried underneath.</p>
+                    </div>
+                    <div class="problem-card reveal-right" data-delay="0.30">
+                        <div class="problem-card__icon">🧩</div>
+                        <h3>Copy-Pasting Across 5 Apps</h3>
+                        <p>Manually transferring contact details between forms, sheets, CRMs, and email tools. Wasting cognitive energy on robot work.</p>
                     </div>
                 </div>
             </div>
@@ -367,26 +361,26 @@
                     <div class="solution__side solution__side--before">
                         <h3>❌ Without Automation</h3>
                         <ul>
-                            <li>Manual lead tracking in messy spreadsheets</li>
-                            <li>Late or forgotten follow-ups</li>
-                            <li>Inbox chaos, important emails buried</li>
-                            <li>Inconsistent posting, no strategy</li>
-                            <li>Working late, high stress</li>
-                            <li><strong>Lost revenue & wasted time</strong></li>
+                            <li>Leads wait hours (or days) for a first response</li>
+                            <li>Calendar clogged with unqualified leads who never buy</li>
+                            <li>Answering the same pricing &amp; service questions repeatedly</li>
+                            <li>Manually shuffling contact info across spreadsheets &amp; apps</li>
+                            <li>High-priority inquiries buried inside an overflowing inbox</li>
+                            <li><strong>Lost deals, constant burnout &amp; missed revenue</strong></li>
                         </ul>
                     </div>
                     <div class="solution__divider" aria-hidden="true">
                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 20h24M26 14l6 6-6 6" stroke="#00BFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
                     <div class="solution__side solution__side--after">
-                        <h3>✅ With Ali's Automation</h3>
+                        <h3>✅ With Ali's Systems</h3>
                         <ul>
-                            <li>Leads auto-captured, tracked & scored</li>
-                            <li>Instant personalized follow-ups 24/7</li>
-                            <li>Smart inbox — only see what matters</li>
-                            <li>Consistent content on autopilot</li>
-                            <li>Focus on your actual business</li>
-                            <li><strong>More revenue & peace of mind</strong></li>
+                            <li>Instant 60-second response &amp; qualification 24/7</li>
+                            <li>Only pre-qualified, ready-to-buy prospects book on your calendar</li>
+                            <li>Smart AI assistant answers routine questions instantly</li>
+                            <li>Seamless zero-touch data sync between forms, CRM &amp; alerts</li>
+                            <li>Priority inbox: high-value client messages surfaced automatically</li>
+                            <li><strong>Predictable pipeline, reclaimed hours &amp; peace of mind</strong></li>
                         </ul>
                     </div>
                 </div>
@@ -516,7 +510,7 @@
                         </div>
                         <div class="faq-item">
                             <button class="faq-q" aria-expanded="false">How much does it cost?</button>
-                            <div class="faq-a"><p>Pricing depends on complexity. Simple automations start at a base rate, while complex AI systems are quoted individually. Book a call for an exact quote.</p></div>
+                            <div class="faq-a"><p>Pricing depends on complexity. Simple automations start at a base rate, while complex AI systems are quoted individually. Reach out via Let's Connect for an exact quote.</p></div>
                         </div>
                     </div>
                 </div>
@@ -601,11 +595,7 @@
     <footer class="footer" role="contentinfo">
         <div class="footer__inner">
             <div class="footer__brand">
-                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                    <defs><linearGradient id="arGradF" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/></linearGradient></defs>
-                    <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="rgba(0,191,255,.4)" stroke-width="1.4"/>
-                    <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGradF)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
-                </svg>
+                <img src="uploads/ar-mark.png" alt="AR Automation Labs" class="footer__logo-img">
                 <div><span class="footer__brand-name">AR Automation Labs</span><span class="footer__brand-sub">AI Automations That Work While You Don't</span></div>
             </div>
             <nav class="footer__nav" aria-label="Footer navigation">
@@ -650,31 +640,24 @@
         </div>
 
         <div class="chat__msgs" id="chatMsgs" aria-live="polite">
-            <div class="cmsg cmsg--bot"><div class="cmsg__b">Hi, I'm ARIA — Ali's AI assistant at AR Automation Labs. I can walk you through the automations we build, timelines and pricing.</div></div>
-            <div class="cmsg cmsg--bot" id="chatAskName"><div class="cmsg__b">Before we start — what should I call you?</div></div>
+            <div class="cmsg cmsg--bot"><div class="cmsg__b">Hi, I'm ARIA — Ali's AI assistant. Ask me anything about our automations, custom workflows, or how we can help your business.</div></div>
         </div>
 
-        <div class="cqa" id="chatQA" hidden>
+        <div class="cqa" id="chatQA">
             <button class="qa" data-m="What automations do you offer?">🤖 What do you offer?</button>
             <button class="qa" data-m="How much do automations cost?">💰 Pricing info</button>
             <button class="qa" data-m="I want to automate my lead capture">📋 Lead automation</button>
-            <button class="qa" data-m="Book a call with Ali">📅 Book a call</button>
+            <button class="qa" data-m="Let's connect with Ali">💬 Let's connect</button>
             <button class="qa" data-m="What tools do you use?">🛠️ Tools used</button>
             <button class="qa" data-m="How long does setup take?">⏱️ Setup time</button>
         </div>
 
-        <form class="chat__in" id="chatNameForm">
-            <input type="text" class="chat__field" id="chatNameIn" placeholder="Your first name..." autocomplete="given-name" maxlength="40" aria-label="Your first name">
-            <button type="submit" class="chat__send chat__send--wide" aria-label="Continue">Start</button>
-        </form>
-
-        <form class="chat__in" id="chatForm" hidden>
+        <form class="chat__in" id="chatForm">
             <input type="text" class="chat__field" id="chatIn" placeholder="Ask ARIA anything..." autocomplete="off" aria-label="Chat message">
             <button type="submit" class="chat__send" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M16 2L8 10M16 2l-4 14-3.5-6-6-3.5L16 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </form>
     </aside>
 
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="main.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a05563463d6ae23b',t:'MTc4MDM5MjA4NQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <script src="main.js"></script>
+</body>
 </html>

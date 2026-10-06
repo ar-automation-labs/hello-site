@@ -32,8 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="apple-touch-icon" href="uploads/profile_pic.png">
+    <link rel="apple-touch-icon" href="uploads/apple-touch-icon.png">
 
     <script type="application/ld+json">
     {
@@ -56,31 +57,14 @@
     <header class="header" role="banner">
         <div class="header__inner">
             <a href="index.html#hero" class="brand" aria-label="AR Automation Labs - Home">
-                <span class="brand__mark" aria-hidden="true">
-                    <svg viewBox="0 0 48 48" fill="none">
-                        <defs>
-                            <linearGradient id="arGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/>
-                            </linearGradient>
-                            <linearGradient id="arRing" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="rgba(0,191,255,.85)"/><stop offset="1" stop-color="rgba(0,85,255,.25)"/>
-                            </linearGradient>
-                        </defs>
-                        <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="url(#arRing)" stroke-width="1.4"/>
-                        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGrad)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
-                    </svg>
-                </span>
-                <span class="brand__txt">
-                    <span class="brand__name">AR</span>
-                    <span class="brand__sub">Automation Labs</span>
-                </span>
+                <img src="uploads/ar-mark.png" alt="AR Automation Labs" class="brand__logo-img">
             </a>
             <nav class="header__nav" role="navigation" aria-label="Main">
                 <a href="index.html#hero" class="header__nav-link">Home</a>
                 <a href="index.html#about" class="header__nav-link">About</a>
                 <a href="index.html#automations" class="header__nav-link">Projects</a>
                 <a href="index.html#faq" class="header__nav-link">FAQ</a>
-                <a href="index.html#contact" class="header__cta">Book a Call</a>
+                <a href="index.html#contact" class="header__cta">Let's Connect</a>
             </nav>
             <button class="header__menu-btn" aria-label="Menu" aria-expanded="false">
                 <span></span><span></span><span></span>
@@ -97,7 +81,7 @@
             <a href="index.html#about" class="mobile-menu__link">About</a>
             <a href="index.html#automations" class="mobile-menu__link">Projects</a>
             <a href="index.html#faq" class="mobile-menu__link">FAQ</a>
-            <a href="index.html#contact" class="mobile-menu__cta">Book a Call</a>
+            <a href="index.html#contact" class="mobile-menu__cta">Let's Connect</a>
         </div>
     </div>
 
@@ -166,7 +150,7 @@
                     </a>
                 </div>
                 <div style="text-align:center;margin-top:36px">
-                    <a href="index.html#contact" class="btn btn--solid">Book a Call With Ali Raza →</a>
+                    <a href="index.html#contact" class="btn btn--solid">Let's Connect With Ali Raza →</a>
                 </div>
             </div>
         </section>
@@ -175,11 +159,7 @@
     <footer class="footer" role="contentinfo">
         <div class="footer__inner">
             <div class="footer__brand">
-                <svg width="32" height="32" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-                    <defs><linearGradient id="arGradF" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop stop-color="#7FE3FF"/><stop offset=".5" stop-color="#00BFFF"/><stop offset="1" stop-color="#0055FF"/></linearGradient></defs>
-                    <rect x="1.25" y="1.25" width="45.5" height="45.5" rx="13" fill="rgba(0,191,255,.07)" stroke="rgba(0,191,255,.4)" stroke-width="1.4"/>
-                    <text x="24" y="24" text-anchor="middle" dominant-baseline="central" fill="url(#arGradF)" font-family="'DM Sans','Plus Jakarta Sans',sans-serif" font-size="21" font-weight="700" letter-spacing="-1.4">AR</text>
-                </svg>
+                <img src="uploads/ar-mark.png" alt="AR Automation Labs" class="footer__logo-img">
                 <div><span class="footer__brand-name">AR Automation Labs</span><span class="footer__brand-sub">AI Automations That Work While You Don't</span></div>
             </div>
             <nav class="footer__nav" aria-label="Footer navigation">
